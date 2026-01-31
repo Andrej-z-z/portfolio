@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1166.87 1166.87">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff7262;
+      }
+
+      .cls-2 {
+        fill: #a259ff;
+      }
+
+      .cls-3 {
+        fill: #1abcfe;
+      }
+
+      .cls-4 {
+        fill: #f24e1e;
+      }
+
+      .cls-5 {
+        fill: #0acf83;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect y="0" width="1166.87" height="1166.87" rx="173.66" ry="173.66"/>
+      <g>
+        <path id="path0_fill" data-name="path0 fill" class="cls-5" d="M433.17,1034.22c82.94,0,150.26-67.32,150.26-150.26v-150.26h-150.26c-82.94,0-150.26,67.32-150.26,150.26s67.32,150.26,150.26,150.26Z"/>
+        <path id="path1_fill" data-name="path1 fill" class="cls-2" d="M282.91,583.43c0-82.94,67.32-150.26,150.26-150.26h150.26v300.53h-150.26c-82.94,0-150.26-67.32-150.26-150.26Z"/>
+        <path id="path1_fill-2" data-name="path1 fill" class="cls-4" d="M282.91,282.91c0-82.94,67.32-150.26,150.26-150.26h150.26v300.53h-150.26c-82.94,0-150.26-67.32-150.26-150.26Z"/>
+        <path id="path2_fill" data-name="path2 fill" class="cls-1" d="M583.43,132.65h150.26c82.95,0,150.26,67.32,150.26,150.26s-67.32,150.26-150.26,150.26h-150.26V132.65Z"/>
+        <path id="path3_fill" data-name="path3 fill" class="cls-3" d="M883.96,583.43c0,82.95-67.32,150.26-150.26,150.26s-150.26-67.32-150.26-150.26,67.32-150.26,150.26-150.26,150.26,67.32,150.26,150.26Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
