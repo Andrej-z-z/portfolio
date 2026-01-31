@@ -366,9 +366,7 @@
 /* Tech Stack Logic Removed */
 
 /* Mobile Social Links */
-.mobile-social-links {
-  display: none;
-}
+/* Mobile Social Links rule removed (it was overriding global.css media query) */
 
 /* Mobile Social Links moved to global.css */
 
@@ -411,7 +409,7 @@ body.static-nav-page #page-title {
 }
 
 #page-title {
-  padding-top: 40px;
+  padding-top: 55px;
   padding-left: 200px;
 }
 
