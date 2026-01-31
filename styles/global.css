@@ -211,7 +211,6 @@ img {
 }
 
 .nav-links a.active::after {
-  content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
