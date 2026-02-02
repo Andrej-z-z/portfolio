@@ -1075,55 +1075,5 @@ window.addEventListener('load', () => {
   }
 });
 
-// ------------------------------------
-// Portfolio Scroll Reveal
-// ------------------------------------
-window.addEventListener('load', () => {
-  const gridItems = document.querySelectorAll('.grid-item');
-
-  if (gridItems.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    // Prepare descriptions for matrix effect
-    const descriptions = document.querySelectorAll('.item-info h3');
-    descriptions.forEach(desc => {
-      desc.dataset.originalText = desc.textContent;
-      desc.style.visibility = 'hidden'; // Hide initially
-    });
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-          target.classList.add('visible');
-
-          // Trigger matrix effect if it's a grid item with a description
-          const desc = target.querySelector('.item-info h3');
-          if (desc && !desc.dataset.typed) {
-            desc.dataset.typed = 'true';
-            // Lock height to prevent layout shift
-            const height = desc.getBoundingClientRect().height;
-            desc.style.height = `${height}px`;
-            desc.style.visibility = 'visible';
-            const text = desc.dataset.originalText;
-            // Use typeGeneric to animate
-            typeGeneric(desc, text, 45, () => {
-              desc.style.height = ''; // Reset height after typing is done
-            });
-          }
-
-          observer.unobserve(target); // Reveal once
-        }
-      });
-    }, observerOptions);
-
-    gridItems.forEach(item => {
-      observer.observe(item);
-    });
-  }
-});
+// End of file
 
