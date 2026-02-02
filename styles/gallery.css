@@ -1,3 +1,6 @@
+/* Social links removed as they are global */
+
+
 .subtitle {
   color: var(--accent-color);
   font-weight: 400;
@@ -5,10 +8,31 @@
   text-align: center;
 }
 
+
+/* Animation styles removed as they are global */
+
+
+body {
+  background-color: var(--bg-color);
+}
+
 .photography-container {
   padding: 100px 0 40px;
   max-width: none;
   margin: 0 30px;
+}
+
+.page-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body.loaded .page-container {
+  opacity: 1;
+}
+
+body.fade-out .page-container {
+  opacity: 0;
 }
 
 
@@ -26,6 +50,7 @@
 }
 
 .page-header h1 {
+  /* Legacy/Fallback */
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 10px;
@@ -49,6 +74,7 @@
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   margin-bottom: 30px;
+  /* Space for masonry fallback */
 }
 
 .grid-item.visible {
@@ -72,12 +98,7 @@
   margin-top: 8px;
 }
 
-.item-info h3 {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-top: 8px;
-}
-
+/* Lightbox Styles */
 .lightbox {
   position: fixed;
   top: 0;

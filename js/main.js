@@ -419,6 +419,7 @@ function setLanguage(lang) {
   const galleryDesc4 = document.getElementById('gallery-desc-4');
   if (galleryDesc4) galleryDesc4.textContent = content.gallery_desc_4;
 
+  // Handle Gallery Card Translation
   const galleryLink = document.querySelector('a[href="gallery.html"]');
   if (galleryLink) {
     const h2 = galleryLink.querySelector('h2');
@@ -429,6 +430,7 @@ function setLanguage(lang) {
       wrapper.innerHTML = content.card_gallery;
       galleryLink.dataset.originalText = content.card_gallery;
     } else {
+      // Direct text (before JS load or if structure differs)
       let textNodeFound = false;
       galleryLink.childNodes.forEach(node => {
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim().length > 0) {
@@ -440,6 +442,7 @@ function setLanguage(lang) {
     }
   }
 
+  // Handle Frontend Projects Card Translation
   const projectsLink = document.querySelector('a[href="frontend-projects.html"]');
   if (projectsLink) {
     const h2 = projectsLink.querySelector('h2');
@@ -954,46 +957,66 @@ window.addEventListener('load', () => {
   }
 });
 
+// ------------------------------------
+// Graphic Design Page Matrix Effect
+// ------------------------------------
 window.addEventListener('load', () => {
   if (document.body.classList.contains('graphic-design-page')) {
     const pageTitle = document.getElementById('page-title');
     const pageSubtitle = document.getElementById('page-subtitle');
+    // Target the anchors directly since h2s were removed
     const categoryHeaders = document.querySelectorAll('.category-card');
 
+    // Preparation: Measure text and create wrappers for static centered typing
     categoryHeaders.forEach(header => {
       const text = header.textContent.trim();
 
+      // Create a temporary clone to measure text width exactly
       const clone = document.createElement('span');
       clone.style.font = getComputedStyle(header).font;
       clone.style.textTransform = getComputedStyle(header).textTransform;
       clone.style.visibility = 'hidden';
       clone.style.position = 'absolute';
+      clone.style.left = '-9999px'; // Fix width overflow during measurement
+      clone.style.whiteSpace = 'nowrap'; // Ensure we measure without wrapping
+      clone.textContent = text;
+      document.body.appendChild(clone);
+      const textWidth = clone.offsetWidth;
       document.body.removeChild(clone);
 
+      // Set up the header for centering
+      // User requested 50% split (handled by CSS grid) and centered text.
+      // We keep the header as a flex container (centered).
+
+      // Clear header content and add a fixed-width wrapper
       header.dataset.originalText = text;
       header.innerHTML = '';
 
       const wrapper = document.createElement('span');
 
+      // On Desktop: Fix width to prevent jitter (Static Center)
+      // On Mobile: Flex width to prevent overflow and ensure perfect centering
       if (window.innerWidth > 768) {
-        wrapper.style.width = `${textWidth + 10}px`;
-        wrapper.style.textAlign = 'left';
-        wrapper.style.whiteSpace = 'nowrap';
+        wrapper.style.width = `${textWidth + 10}px`; // slight buffer
+        wrapper.style.textAlign = 'left'; // Type LTR inside the box
+        wrapper.style.whiteSpace = 'nowrap'; // Prevent wrapping jitter
       } else {
         wrapper.style.textAlign = 'center';
         wrapper.style.width = 'auto';
-        wrapper.style.whiteSpace = 'normal';
+        wrapper.style.whiteSpace = 'normal'; // Allow wrapping
       }
 
       wrapper.style.display = 'inline-block';
-      wrapper.style.overflow = 'hidden';
-      wrapper.style.verticalAlign = 'top';
-      wrapper.className = 'matrix-wrapper';
+      wrapper.style.overflow = 'hidden'; // Contain cursor
+      wrapper.style.verticalAlign = 'top'; // Stabilize vertical alignment
+      wrapper.className = 'matrix-wrapper'; // Marker class
       header.appendChild(wrapper);
 
+      // We'll type into this wrapper later
       header.dataset.wrapperRef = 'true';
     });
 
+    // Hide everything immediately
     if (pageTitle) {
       pageTitle.style.visibility = 'hidden';
       pageTitle.style.opacity = '0';
@@ -1002,16 +1025,19 @@ window.addEventListener('load', () => {
     categoryHeaders.forEach(header => {
       header.style.visibility = 'hidden';
       header.style.opacity = '0';
+      // header.dataset.originalText is already set above
     });
 
     setTimeout(() => {
+      // Start Title Typing
       if (pageTitle) {
         const titleText = pageTitle.childNodes[0].nodeValue.trim();
         const subtitleText = pageSubtitle ? pageSubtitle.textContent.trim() : '';
 
+        // Prepare Title Element
         pageTitle.style.visibility = 'visible';
         pageTitle.style.opacity = '1';
-        pageTitle.innerHTML = "";
+        pageTitle.innerHTML = ""; // Clear content
 
         const titleSpan = document.createElement('span');
         pageTitle.appendChild(titleSpan);
@@ -1027,17 +1053,20 @@ window.addEventListener('load', () => {
         }
       }
 
+      // Start Category Cards Typing concurrently
       categoryHeaders.forEach((header, index) => {
         header.style.visibility = 'visible';
         header.style.opacity = '1';
         const text = header.dataset.originalText;
         const wrapper = header.querySelector('.matrix-wrapper');
 
+        // Use generic typer on the wrapper
+        // The wrapper has fixed width, so centered card + LTR typing = Static center look
         typeGeneric(wrapper, text, 40, () => {
           wrapper.innerHTML = text;
-          wrapper.style.width = 'fit-content';
-          wrapper.style.whiteSpace = 'normal';
-          wrapper.style.overflow = 'visible';
+          wrapper.style.width = 'fit-content'; // Remove fixed width
+          wrapper.style.whiteSpace = 'normal'; // Allow wrapping
+          wrapper.style.overflow = 'visible'; // Ensure no clipping
           wrapper.classList.add('fire-gradient-text');
         });
       });
@@ -1046,6 +1075,9 @@ window.addEventListener('load', () => {
   }
 });
 
+// ------------------------------------
+// Portfolio Scroll Reveal
+// ------------------------------------
 window.addEventListener('load', () => {
   const gridItems = document.querySelectorAll('.grid-item');
 
@@ -1056,10 +1088,11 @@ window.addEventListener('load', () => {
       threshold: 0.1
     };
 
+    // Prepare descriptions for matrix effect
     const descriptions = document.querySelectorAll('.item-info h3');
     descriptions.forEach(desc => {
       desc.dataset.originalText = desc.textContent;
-      desc.style.visibility = 'hidden';
+      desc.style.visibility = 'hidden'; // Hide initially
     });
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -1068,21 +1101,22 @@ window.addEventListener('load', () => {
           const target = entry.target;
           target.classList.add('visible');
 
+          // Trigger matrix effect if it's a grid item with a description
           const desc = target.querySelector('.item-info h3');
           if (desc && !desc.dataset.typed) {
             desc.dataset.typed = 'true';
-
+            // Lock height to prevent layout shift
             const height = desc.getBoundingClientRect().height;
             desc.style.height = `${height}px`;
             desc.style.visibility = 'visible';
             const text = desc.dataset.originalText;
-
+            // Use typeGeneric to animate
             typeGeneric(desc, text, 45, () => {
-              desc.style.height = '';
+              desc.style.height = ''; // Reset height after typing is done
             });
           }
 
-          observer.unobserve(target);
+          observer.unobserve(target); // Reveal once
         }
       });
     }, observerOptions);
