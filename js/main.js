@@ -1075,5 +1075,49 @@ window.addEventListener('load', () => {
   }
 });
 
-// End of file
+
+window.addEventListener('load', () => {
+  const gridItems = document.querySelectorAll('.grid-item');
+
+  if (gridItems.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const descriptions = document.querySelectorAll('.item-info h3');
+    descriptions.forEach(desc => {
+      desc.dataset.originalText = desc.textContent;
+      desc.style.visibility = 'hidden';
+    });
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          target.classList.add('visible');
+
+          const desc = target.querySelector('.item-info h3');
+          if (desc && !desc.dataset.typed) {
+            desc.dataset.typed = 'true';
+            const height = desc.getBoundingClientRect().height;
+            desc.style.height = `${height}px`;
+            desc.style.visibility = 'visible';
+            const text = desc.dataset.originalText;
+            typeGeneric(desc, text, 45, () => {
+              desc.style.height = '';
+            });
+          }
+
+          observer.unobserve(target);
+        }
+      });
+    }, observerOptions);
+
+    gridItems.forEach(item => {
+      observer.observe(item);
+    });
+  }
+});
 
