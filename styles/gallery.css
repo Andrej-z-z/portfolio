@@ -1,106 +1,28 @@
-/* Global styles moved and linked via global.css */
-/* Collection & Intro Removed */
-
-/* Social Links */
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  justify-content: center;
-  /* Center icons below image */
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  color: var(--text-color);
-  transition: transform 0.3s var(--ease-smooth), color 0.3s ease;
-}
-
-.social-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.social-icon:hover {
-  transform: scale(1.1);
-  color: #ffffff;
-}
-
-/* Typewriter Loop Removed */
-
 .subtitle {
   color: var(--accent-color);
   font-weight: 400;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-/* Bio & Category Styles Removed */
-
-@keyframes blink {
-
-  from,
-  to {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+.photography-container {
+  padding: 100px 0 40px;
+  max-width: none;
+  margin: 0 30px;
 }
 
-@keyframes matrixFade {
-  0% {
-    color: #ffffff;
-    text-shadow: 0 0 5px #ffffff;
-  }
 
-  100% {
-    color: inherit;
-    /* Fade to parent color (accent or text) */
-    text-shadow: none;
-  }
-}
-
-/* Category Hover CSS Removed */
-
-/* Page Exit Animations */
-body {
-  background-color: var(--bg-color);
-}
-
-.page-container {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-body.loaded .page-container {
-  opacity: 1;
-}
-
-body.fade-out .page-container {
-  opacity: 0;
-}
-
-/* Arrows Removed */
-
-/* Portfolio Pages (Graphic Design / Photography) */
 .page-header {
-  margin-bottom: 60px;
   opacity: 0;
   animation: fadeIn 0.8s ease forwards 0.1s;
 }
 
-.about-text h1 {
-  font-size: 3rem;
+#page-title {
+  font-size: 4.5rem;
   font-weight: 600;
-  margin-bottom: 0.5em;
-  /* Reduced from default */
-  min-height: auto;
-  /* Remove excessive min-height */
-  line-height: 1.2;
+  margin: 90px 0px 70px 0px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .page-header h1 {
@@ -121,59 +43,27 @@ body.fade-out .page-container {
   gap: 30px;
 }
 
-
 .grid-item {
   position: relative;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s var(--ease-smooth) forwards;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  margin-bottom: 30px;
 }
 
-/* Stagger animations for grid items */
-.grid-item:nth-child(1) {
-  animation-delay: 0.2s;
+.grid-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.grid-item:nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-.grid-item:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.grid-item:nth-child(4) {
-  animation-delay: 0.5s;
-}
-
-.grid-item:nth-child(5) {
-  animation-delay: 0.6s;
-}
-
-.grid-item:nth-child(6) {
-  animation-delay: 0.7s;
-}
-
-.grid-item.large {
-  grid-row: span 2;
-}
-
-.placeholder-image {
+.grid-item img {
   width: 100%;
-  padding-bottom: 100%;
-  /* Square Aspect Ratio by default */
-  background-color: var(--gray-medium);
   border-radius: 4px;
-  transition: opacity 0.3s ease;
-  margin-bottom: 10px;
+  display: block;
 }
 
-.grid-item.large .placeholder-image {
-  padding-bottom: 120%;
-}
-
-.photo-placeholder {
-  opacity: 0.8;
+.item-info {
+  margin-top: 10px;
 }
 
 .item-info h3 {
@@ -182,35 +72,116 @@ body.fade-out .page-container {
   margin-top: 8px;
 }
 
-/* Hover Effect for Gallery Images */
-.portfolio-grid .grid-item:hover img,
-.portfolio-grid .grid-item:hover .placeholder-image {
-  outline: 1px solid var(--accent-color);
-  outline-offset: 1px;
+.item-info h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 8px;
 }
 
-/* Lightbox */
-/* Lightbox CSS Removed */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.18s ease, visibility 0.18s;
+}
 
-/* Back to Top moved to global.css */
+.lightbox.active {
+  visibility: visible;
+  opacity: 1;
+}
 
+.lightbox-content-wrapper {
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+  text-align: center;
+  transform: scale(0.9);
+  transition: transform 0.18s cubic-bezier(0.2, 1, 0.2, 1), opacity 0.18s ease;
+  opacity: 0;
+}
 
-/* Keyframes moved to global.css */
+.lightbox.active .lightbox-content-wrapper {
+  transform: scale(1);
+  opacity: 1;
+}
 
-/* Hamburger Menu moved to global.css */
+.lightbox.active .lightbox-content-wrapper.switching {
+  transform: scale(0.95);
+  opacity: 0;
+}
 
-/* About Image Removed */
+.lightbox-content {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
 
-/* Responsive */
-/* Mobile adjustments for Local Nav */
+.lightbox-caption {
+  margin-top: 15px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 20px;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  color: var(--accent-color);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-prev.disabled,
+.lightbox-next.disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
-  /* Responsive About Removed */
-
   .navbar {
     padding: 20px;
   }
-
-  /* Technical Stack & Category Nav Removed */
 
   .about-text h1 {
     min-height: 0;
@@ -225,79 +196,123 @@ body.fade-out .page-container {
     line-height: 1;
     letter-spacing: -0.03em;
     margin-bottom: 24px;
-    min-height: 4.5em;
+    min-height: 1em;
   }
-}
 
-/* Mobile Social Links moved to global.css */
-
-/* Static Navbar for Photography Page */
-body.static-nav-page .navbar {
-  position: absolute;
-  /* Not fixed */
-  background: transparent;
-  /* Optional: blend with top if needed */
-  backdrop-filter: none;
-  /* Remove blur if it interferes */
-}
-
-/* Adjust container padding since nav is no longer fixed */
-body.static-nav-page .photography-container {
-  padding-top: 0;
-  /* Remove the space reserved for fixed nav */
-  margin-top: 100px;
-  /* initial offset for visual balance */
-}
-
-/* Ensure Local Nav sticks to very top */
-body.static-nav-page .local-nav {
-  position: sticky;
-  top: 0;
-  /* Stick to viewport top */
-  z-index: 95;
-  background: rgba(107, 0, 12, 0.95);
-  /* Slightly more opaque for readability */
-  border-bottom: 1px solid var(--gray-medium);
-  margin-top: 0;
-}
-
-/* Fix for Photography Header Layout Shift */
-body.static-nav-page #page-title {
-  min-height: 4.5em;
-  /* Reserve space for Title + Subtitle */
-  display: block;
-  /* Revert to block to allow inline spans to flow */
-  margin-bottom: 20px;
-  /* Ensure space below regardless of content */
-}
-
-@media (max-width: 768px) {
-  body.static-nav-page #page-title {
-    min-height: 7.5em;
-    /* More space for wrapping subtitle on mobile */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
   }
-}
 
-/* Mobile specific tweaks for static nav page */
-@media (max-width: 768px) {
   body.static-nav-page .navbar {
     position: absolute;
     padding: 20px;
   }
 
   body.static-nav-page .photography-container {
-    margin-top: 80px;
+    margin-top: 45px;
   }
 
-  /* Fix hamburger visibility when menu is active on static page */
   body.static-nav-page .hamburger.active {
     position: fixed;
     top: 28px;
-    /* Aligned with padding 20px + margin 6-8px approx */
     right: 20px;
     z-index: 110;
-    /* Higher than nav-links */
+  }
+
+  body.static-nav-page #page-title {
+    min-height: 1em;
+    margin-bottom: 0px;
+  }
+
+  .page-header {
+    min-height: 1em;
+    padding-bottom: 50px;
+  }
+
+  #page-title {
+    font-size: 3rem;
+    padding-left: 5px;
+    line-height: 1;
+    margin-bottom: 0px;
+    text-align: center;
+    margin: 0px;
+    height: auto;
+  }
+
+  #page-title br {
+    display: none;
+  }
+
+  #page-title .subtitle {
+    display: block;
+    margin-top: 5px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .photography-container {
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .lightbox-content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .lightbox-content {
+    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    padding: 10px;
+    width: auto;
+  }
+
+  .lightbox-prev {
+    left: 5px;
+  }
+
+  .lightbox-next {
+    right: 5px;
   }
 }
 
-/* Social Links moved to global.css */
+@media (min-width: 769px) {
+  .portfolio-grid {
+    display: block;
+    column-count: 3;
+    column-gap: 30px;
+  }
+
+  .grid-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 30px;
+    break-inside: avoid;
+    vertical-align: top;
+    transition: transform 0.3s ease, opacity 0.6s ease-out;
+  }
+
+  .grid-item:hover {
+    transform: translateY(-5px);
+    z-index: 1;
+  }
+
+  .portfolio-grid .grid-item:hover img {
+    outline: 1px solid var(--accent-color);
+    outline-offset: 1px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 1100px) {
+    .portfolio-grid {
+      column-count: 2;
+    }
+  }
+}

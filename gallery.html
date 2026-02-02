@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Gallery - Andrej</title>
   <link rel="stylesheet" href="styles/global.css">
   <link rel="stylesheet" href="styles/gallery.css">
 </head>
 
-<body>
+<body class="static-nav-page" oncontextmenu="return false">
 
   <nav class="navbar">
     <div class="nav-logo">
@@ -55,66 +55,134 @@
       <span></span>
     </div>
     <ul class="nav-links">
-      <li><a href="graphic-design.html" class="active">Graphic Design</a></li>
+      <li><a href="graphic-design.html">Graphic Design</a></li>
       <li><a href="photography.html">Photography</a></li>
-      <li><a href="index.html#about">About</a></li>
+      <li><a href="#about">About</a></li>
+      <li class="mobile-social-links">
+        <a href="https://www.instagram.com/fuji.adji/" target="_blank" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/andrej-%C5%BEivkovi%C4%87-040177390/" target="_blank" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+            </path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="mailto:pademika@gmail.com" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </li>
     </ul>
   </nav>
 
-  <main class="page-container">
+  <main class="page-container photography-container">
     <header class="page-header">
-      <h1 id="page-title">Gallery</h1>
-      <p id="page-subtitle">Selected works 2023-2025</p>
+      <h1 id="page-title">
+        Gallery<br />
+        <span class="subtitle" id="page-subtitle">Selected works 2021-2025</span>
+      </h1>
     </header>
 
-    <div class="portfolio-grid">
-      <!-- Project 1 -->
+    <div class="portfolio-grid" data-collection="gallery-works">
       <div class="grid-item large">
-        <div class="placeholder-image" style="background-color: #e0e0e0;"></div>
+        <img src="imgs/gd/galerija/Floating spacebase.jpg" alt="Floating spacebase">
         <div class="item-info">
-          <h3 id="gallery-desc-1">Brand Identity</h3>
+          <h3 id="gallery-desc-1">Floating Island</h3>
         </div>
       </div>
-      <!-- Project 2 -->
-      <div class="grid-item medium">
-        <div class="placeholder-image" style="background-color: #d6d6d6;"></div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/njuinsp.jpg" alt="Hometown">
         <div class="item-info">
-          <h3 id="gallery-desc-2">Typography Layout</h3>
+          <h3 id="gallery-desc-1">Hometown</h3>
         </div>
       </div>
-      <!-- Project 3 -->
-      <div class="grid-item medium">
-        <div class="placeholder-image" style="background-color: #cccccc;"></div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/tct.jpg" alt="Post Malone TCT alt cover (Manipulation)">
         <div class="item-info">
-          <h3 id="gallery-desc-3">Poster Design</h3>
+          <h3 id="gallery-desc-1">Post Malone TCT alt cover</h3>
         </div>
       </div>
-      <!-- Project 4 -->
-      <div class="grid-item medium">
-        <div class="placeholder-image" style="background-color: #c2c2c2;"></div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/okej.jpg" alt="Deep Space (Manipulation)">
         <div class="item-info">
-          <h3 id="gallery-desc-4">Book Cover</h3>
+          <h3 id="gallery-desc-1">Deep space</h3>
         </div>
       </div>
-      <!-- Project 5 -->
-      <div class="grid-item medium">
-        <div class="placeholder-image" style="background-color: #e0e0e0;"></div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/ghostofkyiv.jpg" alt="Ghost of Kyiv cover (Manipulation)">
         <div class="item-info">
-          <h3>Packaging</h3>
+          <h3 id="gallery-desc-1">Ghost of Kyiv cover</h3>
         </div>
       </div>
-      <!-- Project 6 -->
-      <div class="grid-item medium">
-        <div class="placeholder-image" style="background-color: #d6d6d6;"></div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/vinyllll.jpg" alt="Vinyl fictional cover">
         <div class="item-info">
-          <h3>Editorial</h3>
+          <h3 id="gallery-desc-1">Fictional vinyl</h3>
         </div>
       </div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/prvi oglas.jpg" alt="Academy ad">
+        <div class="item-info">
+          <h3 id="gallery-desc-1">Academy Ad</h3>
+        </div>
+      </div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/valjevo.jpg" alt="Valjevo">
+        <div class="item-info">
+          <h3 id="gallery-desc-1">Valjevo</h3>
+        </div>
+      </div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/ig pfp2.jpg" alt="IG PFP">
+        <div class="item-info">
+          <h3 id="gallery-desc-1">'Illusion of Democracy' Youtube pfp design</h3>
+        </div>
+      </div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/banner democracy.jpg" alt="Banner Democracy">
+        <div class="item-info">
+          <h3 id="gallery-desc-1">'Illusion of Democracy' banner</h3>
+        </div>
+      </div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/plazma ad.jpg" alt="Plazma ad">
+        <div class="item-info">
+          <h3 id="gallery-desc-1">Plazma ad</h3>
+        </div>
+      </div>
+      <div class="grid-item large">
+        <img src="imgs/gd/galerija/film poster.jpg" alt="Film poster">
+        <div class="item-info">
+          <h3 id="gallery-desc-1">Film poster</h3>
+        </div>
+      </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <button class="lightbox-prev" aria-label="Previous Image">&#10094;</button>
+      <div class="lightbox-content-wrapper">
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Lightbox Image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+      <button class="lightbox-next" aria-label="Next Image">&#10095;</button>
     </div>
   </main>
 
   <script src="js/main.js"></script>
-  <script src="js/main.js"></script>
+
 </body>
 
 </html>

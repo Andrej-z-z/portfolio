@@ -1,11 +1,3 @@
-/* Global styles moved to global.css */
-
-/* Local Navbar Removed */
-
-
-/* Collection Sections Removed */
-
-/* Home Page Styles */
 .intro-section {
   margin: 35px 0px;
   padding: 60px 0;
@@ -22,11 +14,8 @@
   letter-spacing: -0.03em;
   margin-bottom: 24px;
   min-height: 3.5em;
-  /* Prevent layout shift */
 }
 
-/* Social Links */
-/* Social Links moved to global.css */
 
 #typewriter-loop {
   color: var(--accent-color);
@@ -56,20 +45,16 @@
 
 
 .category-card {
-  /* Removed background color */
   background: transparent;
-  /* Removed border radius as it is transparent now, but kept for hover structure if needed later */
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Ensure parent scale is smooth */
   transition: transform 0.3s var(--ease-smooth);
-  /* Removed background transition */
-  overflow: hidden;
+  overflow: visible;
   position: relative;
-
-  /* Initial Animation State */
+  width: fit-content;
+  margin: 0 auto;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s var(--ease-smooth) forwards;
@@ -84,13 +69,10 @@
 }
 
 .category-card:hover {
-  /* Removed background color change on hover */
   transform: scale(1.02) translateY(0) !important;
   color: #ffffff;
-  /* Make text white on hover */
 }
 
-/* Explicitly target h2 for color change if needed, though inheritance works */
 .category-card:hover h2 {
   color: #ffffff;
 }
@@ -101,66 +83,41 @@
 
 .card-content h2 {
   font-size: 5rem;
-  /* Increased size significantly */
   font-weight: 700;
-  /* Bold */
   text-transform: uppercase;
-  /* Uppercase */
-  transition: transform 0.3s var(--ease-smooth), color 0.3s ease;
+  transition: transform 0.3s var(--ease-smooth), color 0.3s ease, background 0.3s ease;
+  /* Added background transition */
   transform-origin: center;
-}
 
-/* Typewriter Cursor (Matrix Style) */
-.cursor {
+  /* Persistent Fire Effect */
+  background: linear-gradient(110deg, var(--text-color) 30%, #ff9900 45%, #ff2200 55%, var(--text-color) 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fireWave 3s linear infinite;
   display: inline-block;
-  width: 0.6em;
-  height: 1em;
-  background-color: #ffffff;
-  /* White block */
-  animation: blink 1s step-end infinite;
-  margin-left: 2px;
-  vertical-align: text-bottom;
 }
 
-.matrix-char {
-  color: #ffffff;
-  /* Start White explicitly */
-  text-shadow: 0 0 5px #ffffff;
-  animation: matrixFade 0.5s ease forwards;
-  display: inline;
-}
-
-@keyframes blink {
-
-  from,
-  to {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes matrixFade {
+@keyframes fireWave {
   0% {
-    color: #ffffff;
-    text-shadow: 0 0 5px #ffffff;
+    background-position: 200% center;
   }
 
   100% {
-    color: inherit;
-    /* Fade to parent color (accent or text) */
-    text-shadow: none;
+    background-position: 0% center;
   }
 }
 
 .category-card:hover h2 {
+  background: none;
+  /* Remove gradient */
+  -webkit-text-fill-color: #ffffff;
+  /* Override transparent fill */
   color: #ffffff;
   transform: scale(1.1);
 }
 
-/* Page Exit Animations */
 body {
   background-color: var(--bg-color);
 }
@@ -178,9 +135,7 @@ body.fade-out .page-container {
   opacity: 0;
 }
 
-/* Arrows Removed */
 
-/* Portfolio Pages (Graphic Design / Photography) */
 .page-header {
   margin-bottom: 60px;
   opacity: 0;
@@ -191,9 +146,7 @@ body.fade-out .page-container {
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 0.5em;
-  /* Reduced from default */
   min-height: auto;
-  /* Remove excessive min-height */
   line-height: 1.2;
 }
 
@@ -209,12 +162,7 @@ body.fade-out .page-container {
   font-size: 1.1rem;
 }
 
-/* Portfolio Grid & Lightbox Removed */
 
-/* Back to Top moved to global.css */
-
-
-/* Keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -237,18 +185,14 @@ body.fade-out .page-container {
   }
 }
 
-/* Hamburger Menu moved to global.css */
 
-/* About Page (Merged) */
 .about-section {
   max-width: 1300px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: start;
-  /* Fixed spacing and centering */
   margin: 100px auto 0;
-  /* Fix for fixed navbar covering the title on scroll */
   scroll-margin-top: 150px;
 }
 
@@ -267,12 +211,9 @@ body.fade-out .page-container {
   background-color: var(--gray-medium);
   width: 100%;
   padding-bottom: 125%;
-  /* Portrait aspect ratio */
   border-radius: 4px;
 }
 
-/* Responsive */
-/* Mobile adjustments for About section */
 @media (max-width: 768px) {
   .about-section {
     grid-template-columns: 1fr;
@@ -282,7 +223,6 @@ body.fade-out .page-container {
 
   .about-image {
     order: -1;
-    /* Show image first on mobile? Optional, keeping text first for now */
   }
 
   .intro-section h1 {
@@ -301,7 +241,6 @@ body.fade-out .page-container {
     padding: 40px 0;
   }
 
-  /* Adjust category text size for mobile */
   .card-content h2 {
     font-size: 2.8rem;
   }
@@ -310,7 +249,6 @@ body.fade-out .page-container {
     grid-template-columns: 1fr;
   }
 
-  /* Adjust sticky local nav for mobile */
   .local-nav {
     top: 70px;
     padding: 22px 0;
@@ -330,12 +268,10 @@ body.fade-out .page-container {
   }
 }
 
-/* Tech Stack Slider */
 .tech-stack-section {
   overflow: hidden;
   padding: 80px 0;
 
-  /* Full Width Breakout */
   width: 100vw;
   position: relative;
   left: 50%;
@@ -350,7 +286,6 @@ body.fade-out .page-container {
 .tech-track {
   display: flex;
   width: max-content;
-  /* Sliding Left to Right */
   animation: scrollRight 40s linear infinite;
 }
 
@@ -359,7 +294,6 @@ body.fade-out .page-container {
   width: auto;
   object-fit: contain;
   margin: 0 40px;
-  /* More saturated & visible by default (User Request) */
   filter: grayscale(40%);
   opacity: 0.9;
   transition: all 0.3s ease;
@@ -377,7 +311,6 @@ body.fade-out .page-container {
   width: 75%;
   margin: 0 auto;
   display: block;
-  /* Ensure margin auto works */
 }
 
 #page-title {
@@ -400,7 +333,6 @@ body.fade-out .page-container {
   }
 }
 
-/* Mobile adjustments for slider */
 @media (max-width: 768px) {
   .tech-stack-section {
     padding: 40px 0;
@@ -443,56 +375,39 @@ body.fade-out .page-container {
   }
 }
 
-/* Mobile Social Links moved to global.css */
 
-/* Static Navbar for Photography Page */
 body.static-nav-page .navbar {
   position: absolute;
-  /* Not fixed */
   background: transparent;
-  /* Optional: blend with top if needed */
   backdrop-filter: none;
-  /* Remove blur if it interferes */
 }
 
-/* Adjust container padding since nav is no longer fixed */
 body.static-nav-page .photography-container {
   padding-top: 0;
-  /* Remove the space reserved for fixed nav */
   margin-top: 100px;
-  /* initial offset for visual balance */
 }
 
-/* Ensure Local Nav sticks to very top */
 body.static-nav-page .local-nav {
   position: sticky;
   top: 0;
-  /* Stick to viewport top */
   z-index: 95;
   background: rgba(107, 0, 12, 0.95);
-  /* Slightly more opaque for readability */
   border-bottom: 1px solid var(--gray-medium);
   margin-top: 0;
 }
 
-/* Fix for Photography Header Layout Shift */
 body.static-nav-page #page-title {
   min-height: 4.5em;
-  /* Reserve space for Title + Subtitle */
   display: block;
-  /* Revert to block to allow inline spans to flow */
   margin-bottom: 20px;
-  /* Ensure space below regardless of content */
 }
 
 @media (max-width: 768px) {
   body.static-nav-page #page-title {
     min-height: 7.5em;
-    /* More space for wrapping subtitle on mobile */
   }
 }
 
-/* Mobile specific tweaks for static nav page */
 @media (max-width: 768px) {
   body.static-nav-page .navbar {
     position: absolute;
@@ -503,15 +418,10 @@ body.static-nav-page #page-title {
     margin-top: 80px;
   }
 
-  /* Fix hamburger visibility when menu is active on static page */
   body.static-nav-page .hamburger.active {
     position: fixed;
     top: 28px;
-    /* Aligned with padding 20px + margin 6-8px approx */
     right: 20px;
     z-index: 110;
-    /* Higher than nav-links */
   }
 }
-
-/* Social Links moved to global.css */

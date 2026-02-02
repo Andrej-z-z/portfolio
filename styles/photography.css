@@ -1,12 +1,9 @@
-/* Global styles moved and linked via global.css */
-/* Specific override for Photography page */
 .photography-container {
   padding: 100px 0 40px;
   max-width: none;
   margin: 0 30px;
 }
 
-/* Local Navbar */
 .local-nav {
   position: sticky;
   top: 109.3px;
@@ -43,10 +40,9 @@
 }
 
 
-/* Collection Sections */
 .collection-section {
   margin-bottom: 100px;
-  scroll-margin-top: 85px;
+  scroll-margin-top: 110px;
 }
 
 .collection-header {
@@ -68,63 +64,15 @@
   font-style: italic;
 }
 
-/* Intro & Social Links Container Removed */
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  color: var(--text-color);
-  transition: transform 0.3s var(--ease-smooth), color 0.3s ease;
+#title-fashion {
+  margin-top: 50px;
 }
 
-.social-icon svg {
-  width: 100%;
-  height: 100%;
+
+#title-fashion {
+  margin-top: 50px;
 }
 
-.social-icon:hover {
-  transform: scale(1.1);
-  color: #ffffff;
-}
-
-/* Typewriter Loop Removed */
-
-.subtitle {
-  color: var(--accent-color);
-  font-weight: 400;
-}
-
-/* Bio & Category Styles Removed */
-
-@keyframes blink {
-
-  from,
-  to {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes matrixFade {
-  0% {
-    color: #ffffff;
-    text-shadow: 0 0 5px #ffffff;
-  }
-
-  100% {
-    color: inherit;
-    /* Fade to parent color (accent or text) */
-    text-shadow: none;
-  }
-}
-
-/* About Page & Category Hover Removed */
 
 .page-header h1 {
   font-size: 3rem;
@@ -148,34 +96,16 @@
 .grid-item {
   position: relative;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s var(--ease-smooth) forwards;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Stagger animations for grid items */
-.grid-item:nth-child(1) {
-  animation-delay: 0.2s;
+.grid-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.grid-item:nth-child(2) {
-  animation-delay: 0.3s;
-}
 
-.grid-item:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.grid-item:nth-child(4) {
-  animation-delay: 0.5s;
-}
-
-.grid-item:nth-child(5) {
-  animation-delay: 0.6s;
-}
-
-.grid-item:nth-child(6) {
-  animation-delay: 0.7s;
-}
 
 .grid-item.large {
   grid-row: span 2;
@@ -188,7 +118,6 @@
 .placeholder-image {
   width: 100%;
   padding-bottom: 100%;
-  /* Square Aspect Ratio by default */
   background-color: var(--gray-medium);
   border-radius: 4px;
   transition: opacity 0.3s ease;
@@ -209,14 +138,12 @@
   margin-top: 8px;
 }
 
-/* Hover Effect for Gallery Images */
 .portfolio-grid .grid-item:hover img,
 .portfolio-grid .grid-item:hover .placeholder-image {
   outline: 1px solid var(--accent-color);
   outline-offset: 1px;
 }
 
-/* Lightbox */
 .lightbox {
   position: fixed;
   top: 0;
@@ -317,31 +244,18 @@
   pointer-events: none;
 }
 
-/* Back to Top moved to global.css */
 
-
-/* Keyframes moved to global.css */
-
-/* Hamburger Menu moved to global.css */
-
-/* About Image Removed */
-
-/* Responsive */
-/* Mobile adjustments for Local Nav */
 @media (max-width: 768px) {
-  /* Responsive About Removed */
 
   .navbar {
     padding: 20px;
   }
 
-  /* Intro & Category & Tech Stack Removed */
 
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Adjust sticky local nav for mobile */
   .local-nav {
     top: 70px;
     padding: 22px 0;
@@ -363,49 +277,30 @@
   }
 }
 
-/* Tech Stack Logic Removed */
 
-/* Mobile Social Links */
-/* Mobile Social Links rule removed (it was overriding global.css media query) */
-
-/* Mobile Social Links moved to global.css */
-
-/* Static Navbar for Photography Page */
 body.static-nav-page .navbar {
   position: absolute;
-  /* Not fixed */
   background: transparent;
-  /* Optional: blend with top if needed */
   backdrop-filter: none;
-  /* Remove blur if it interferes */
 }
 
-/* Adjust container padding since nav is no longer fixed */
 body.static-nav-page .photography-container {
   padding-top: 0;
-  /* Remove the space reserved for fixed nav */
   margin-top: 100px;
-  /* initial offset for visual balance */
 }
 
-/* Ensure Local Nav sticks to very top */
 body.static-nav-page .local-nav {
   position: sticky;
   top: 0;
-  /* Stick to viewport top */
   z-index: 95;
   background: rgba(107, 0, 12, 0.95);
-  /* Slightly more opaque for readability */
   border-bottom: 1px solid var(--gray-medium);
   margin-top: 0;
 }
 
-/* Fix for Photography Header Layout Shift */
 body.static-nav-page #page-title {
   min-height: 4.5em;
-  /* Reserve space for Title + Subtitle */
   display: block;
-  /* Revert to block to allow inline spans to flow */
 }
 
 #page-title {
@@ -428,7 +323,6 @@ body.static-nav-page #page-title {
   }
 }
 
-/* Mobile specific tweaks for static nav page */
 @media (max-width: 768px) {
   body.static-nav-page .navbar {
     position: absolute;
@@ -439,14 +333,11 @@ body.static-nav-page #page-title {
     margin-top: 80px;
   }
 
-  /* Fix hamburger visibility when menu is active on static page */
   body.static-nav-page .hamburger.active {
     position: fixed;
     top: 28px;
-    /* Aligned with padding 20px + margin 6-8px approx */
     right: 20px;
     z-index: 110;
-    /* Higher than nav-links */
   }
 
   .page-container {
@@ -461,72 +352,11 @@ body.static-nav-page #page-title {
   }
 }
 
-/* Social Icons (Desktop & Global) */
-.social-links {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* Duplicate .social-icon rule removed to use the definition at the top of the file (40px) */
-.social-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.social-icon:hover {
-  transform: scale(1.1);
-}
-
-/* Typewriter Effect (Matrix Style) - Restored */
-.cursor {
-  display: inline-block;
-  width: 0.6em;
-  height: 1em;
-  background-color: #ffffff;
-  animation: blink 1s step-end infinite;
-  margin-left: 2px;
-  vertical-align: text-bottom;
-}
-
-.matrix-char {
-  color: #ffffff;
-  text-shadow: 0 0 5px #ffffff;
-  animation: matrixFade 0.5s ease forwards;
-  display: inline;
-}
-
-@keyframes blink {
-
-  from,
-  to {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes matrixFade {
-  0% {
-    color: #ffffff;
-    text-shadow: 0 0 5px #ffffff;
-  }
-
-  100% {
-    color: inherit;
-    text-shadow: none;
-  }
-}
-
 .subtitle {
   color: var(--accent-color);
   font-weight: 400;
 }
 
-/* Masonry Layout for Desktop (Eliminates vertical gaps) */
 @media (min-width: 769px) {
   .portfolio-grid {
     display: block;
@@ -539,17 +369,14 @@ body.static-nav-page #page-title {
     width: 100%;
     margin-bottom: 30px;
     break-inside: avoid;
-    /* Ensure no unexpected spacing issues */
     vertical-align: top;
   }
 
-  /* Reset grid spans since we are no longer using grid */
   .grid-item.large,
   .grid-item.small {
     grid-row: auto;
   }
 
-  /* Responsive column adjustments */
   @media (max-width: 1100px) {
     .portfolio-grid {
       column-count: 2;

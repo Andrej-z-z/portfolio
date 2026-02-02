@@ -1,33 +1,21 @@
-/* Global styles moved and linked via global.css */
-/* Collection Section Removed */
-
-/* Home Page Styles */
 .intro-section {
   margin: 20px 0px;
   padding: 60px 0;
   max-width: 800px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s var(--ease-smooth) forwards 0.1s;
 }
 
 .intro-section h1 {
   font-size: 4rem;
   font-weight: 600;
-  line-height: 1.1;
   letter-spacing: -0.03em;
-  margin-bottom: 24px;
   min-height: 3.5em;
-  /* Prevent layout shift */
 }
 
-/* Social Links */
 .social-links {
   display: flex;
   gap: 15px;
   margin-top: 20px;
   justify-content: center;
-  /* Center icons below image */
 }
 
 .social-icon {
@@ -50,136 +38,80 @@
   color: #ffffff;
 }
 
-/* Typewriter Loop Removed */
-
 .subtitle {
   color: var(--accent-color);
   font-weight: 400;
 }
 
-/* Bio Removed */
-
-.category-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  /* Reduced gap */
-  margin: 40px auto 0;
-  /* Centered with top margin */
-  max-width: 1200px;
-  /* Increased max-width for more dominance */
-}
-
 .category-card {
-  display: block;
-  /* Removed background color */
-  background: transparent;
-  height: 400px;
-  /* Increased height */
-  /* Removed border radius as it is transparent now, but kept for hover structure if needed later */
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Ensure parent scale is smooth */
-  transition: transform 0.3s var(--ease-smooth);
-  /* Removed background transition */
-  overflow: hidden;
-  position: relative;
-
-  /* Initial Animation State */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s var(--ease-smooth) forwards;
-}
-
-.category-card:nth-child(1) {
-  animation-delay: 0.4s;
-}
-
-.category-card:nth-child(2) {
-  animation-delay: 0.6s;
+  transition: transform 0.3s var(--ease-smooth), color 0.3s ease;
+  overflow: visible;
+  visibility: hidden;
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transform-origin: center;
+  text-align: center;
+  color: var(--text-color);
+  text-decoration: none;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .category-card:hover {
-  /* Removed background color change on hover */
-  transform: scale(1.02) translateY(0) !important;
-  color: #ffffff;
-  /* Make text white on hover */
-}
-
-/* Explicitly target h2 for color change if needed, though inheritance works */
-.category-card:hover h2 {
+  transform: scale(1.1) translateY(0) !important;
   color: #ffffff;
 }
 
-.card-content {
-  text-align: center;
+.category-card:hover .fire-gradient-text {
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  color: #ffffff !important;
 }
 
-.card-content h2 {
-  font-size: 3.5rem;
-  /* Increased size significantly */
-  font-weight: 700;
-  /* Bold */
-  text-transform: uppercase;
-  /* Uppercase */
-  margin-bottom: 10px;
-  transition: transform 0.3s var(--ease-smooth), color 0.3s ease;
-  transform-origin: center;
+.category-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 60px;
+  padding: 60px 20px;
+  justify-items: center;
+  align-items: center;
 }
 
-/* Typewriter Cursor (Matrix Style) */
-.cursor {
+@media (min-width: 769px) {
+  .category-nav {
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-top: 150px;
+    padding-right: 100px;
+  }
+}
+
+/* Fire Gradient Effect */
+.fire-gradient-text {
+  background: linear-gradient(110deg, var(--text-color) 30%, #ff9900 45%, #ff2200 55%, var(--text-color) 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: fireWave 3s linear infinite;
   display: inline-block;
-  width: 0.6em;
-  height: 1em;
-  background-color: #ffffff;
-  /* White block */
-  animation: blink 1s step-end infinite;
-  margin-left: 2px;
-  vertical-align: text-bottom;
 }
 
-.matrix-char {
-  color: #ffffff;
-  /* Start White explicitly */
-  text-shadow: 0 0 5px #ffffff;
-  animation: matrixFade 0.5s ease forwards;
-  display: inline;
-}
-
-@keyframes blink {
-
-  from,
-  to {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes matrixFade {
+@keyframes fireWave {
   0% {
-    color: #ffffff;
-    text-shadow: 0 0 5px #ffffff;
+    background-position: 200% center;
   }
 
   100% {
-    color: inherit;
-    /* Fade to parent color (accent or text) */
-    text-shadow: none;
+    background-position: 0% center;
   }
 }
 
-.category-card:hover h2 {
-  color: #ffffff;
-  transform: scale(1.1);
-}
-
-/* Page Exit Animations */
 body {
   background-color: var(--bg-color);
 }
@@ -197,9 +129,6 @@ body.fade-out .page-container {
   opacity: 0;
 }
 
-/* Arrows Removed */
-
-/* Portfolio Pages (Graphic Design / Photography) */
 .page-header {
   margin-bottom: 60px;
   opacity: 0;
@@ -210,9 +139,7 @@ body.fade-out .page-container {
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 0.5em;
-  /* Reduced from default */
   min-height: auto;
-  /* Remove excessive min-height */
   line-height: 1.2;
 }
 
@@ -228,32 +155,6 @@ body.fade-out .page-container {
   font-size: 1.1rem;
 }
 
-/* Portfolio Grid Removed */
-
-/* Lightbox Removed */
-
-/* Back to Top moved to global.css */
-
-
-/* Keyframes moved to global.css */
-
-/* Hamburger Menu moved to global.css */
-
-/* About Image Removed */
-
-/* Responsive */
-/* Mobile adjustments for Local Nav */
-@media (max-width: 768px) {
-  /* Responsive About Removed */
-
-  .navbar {
-    padding: 20px;
-  }
-
-  /* Local Nav & Collection & Grid Responsive Removed */
-}
-
-/* Tech Stack Removed */
 .about-text h1 {
   min-height: 0;
   text-align: center;
@@ -264,64 +165,76 @@ body.fade-out .page-container {
   padding: 0px;
   font-size: 3rem;
   font-weight: 600;
-  line-height: 1;
   letter-spacing: -0.03em;
-  margin-bottom: 24px;
-  min-height: 4.5em;
+  min-height: 3em;
 }
 
 
-/* Mobile Social Links moved to global.css */
-
-/* Static Navbar for Photography Page */
 body.static-nav-page .navbar {
   position: absolute;
-  /* Not fixed */
   background: transparent;
-  /* Optional: blend with top if needed */
   backdrop-filter: none;
-  /* Remove blur if it interferes */
 }
 
-/* Adjust container padding since nav is no longer fixed */
 body.static-nav-page .photography-container {
   padding-top: 0;
-  /* Remove the space reserved for fixed nav */
   margin-top: 100px;
-  /* initial offset for visual balance */
 }
 
-/* Ensure Local Nav sticks to very top */
 body.static-nav-page .local-nav {
   position: sticky;
   top: 0;
-  /* Stick to viewport top */
   z-index: 95;
   background: rgba(107, 0, 12, 0.95);
-  /* Slightly more opaque for readability */
   border-bottom: 1px solid var(--gray-medium);
   margin-top: 0;
 }
 
-/* Fix for Photography Header Layout Shift */
 body.static-nav-page #page-title {
   min-height: 4.5em;
-  /* Reserve space for Title + Subtitle */
   display: block;
-  /* Revert to block to allow inline spans to flow */
   margin-bottom: 20px;
-  /* Ensure space below regardless of content */
 }
 
 @media (max-width: 768px) {
   body.static-nav-page #page-title {
     min-height: 7.5em;
-    /* More space for wrapping subtitle on mobile */
   }
 }
 
-/* Mobile specific tweaks for static nav page */
 @media (max-width: 768px) {
+  body.static-nav-page .hamburger.active {
+    position: fixed;
+    top: 28px;
+    right: 20px;
+    z-index: 110;
+  }
+
+  .category-card {
+    font-size: 3em;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+
+  .category-card:hover {
+    transform: none !important;
+  }
+
+  /* Fix Intro Section for mobile */
+  .intro-section {
+    padding: 40px 20px;
+  }
+
+  .intro-section h1 {
+    font-size: 2.5rem;
+    min-height: auto;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
   body.static-nav-page .navbar {
     position: absolute;
     padding: 20px;
@@ -331,15 +244,7 @@ body.static-nav-page #page-title {
     margin-top: 80px;
   }
 
-  /* Fix hamburger visibility when menu is active on static page */
-  body.static-nav-page .hamburger.active {
-    position: fixed;
-    top: 28px;
-    /* Aligned with padding 20px + margin 6-8px approx */
-    right: 20px;
-    z-index: 110;
-    /* Higher than nav-links */
+  span {
+    overflow: visible;
   }
 }
-
-/* Social Links moved to global.css */

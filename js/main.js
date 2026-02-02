@@ -1,21 +1,15 @@
-// Page Load Animation
-// Optimized: Show content as soon as DOM is ready, don't wait for all images
 window.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
 });
 
-// Backup: Ensure it runs on load just in case
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
 
-// Fix for blank page issue on back button (bfcache)
 window.addEventListener('pageshow', (event) => {
-  // Always force reset the state
   document.body.classList.remove('fade-out');
   document.body.classList.add('loaded');
 
-  // Backup: Force it again after a short delay
   setTimeout(() => {
     document.body.classList.remove('fade-out');
     document.body.classList.add('loaded');
@@ -23,7 +17,6 @@ window.addEventListener('pageshow', (event) => {
 });
 
 
-// Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -34,7 +27,6 @@ if (hamburger) {
   });
 }
 
-// Typewriter Effect (Hero)
 const mainTextElem = document.getElementById('typewriter-main');
 const loopTextElem = document.getElementById('typewriter-loop');
 
@@ -52,7 +44,6 @@ let isDeleting = false;
 let isLooping = false;
 let heroCursor = null;
 
-// Initialize cursors
 if (mainTextElem && loopTextElem) {
   mainTextElem.innerHTML = '';
   heroCursor = createCursor();
@@ -60,7 +51,6 @@ if (mainTextElem && loopTextElem) {
 }
 
 function typeWriter() {
-  // 1. Type Main Text First
   if (!isLooping) {
     if (charIndex < mainText.length) {
       if (mainText.charAt(charIndex) === ' ') {
@@ -74,12 +64,10 @@ function typeWriter() {
       charIndex++;
       setTimeout(typeWriter, 50);
     } else {
-      // Main text finished
-      mainTextElem.removeChild(heroCursor); // Remove main cursor
+      mainTextElem.removeChild(heroCursor);
       isLooping = true;
       charIndex = 0;
 
-      // Setup loop cursor
       loopTextElem.innerHTML = '';
       heroCursor = createCursor();
       loopTextElem.appendChild(heroCursor);
@@ -89,18 +77,14 @@ function typeWriter() {
     return;
   }
 
-  // 2. Loop Subtitles
   const currentPhrase = loopPhrases[loopIndex];
 
   if (isDeleting) {
-    // Deleting - Remove last child before cursor
-    // The cursor is the last child, so we remove the one before it
     if (heroCursor.previousSibling) {
       loopTextElem.removeChild(heroCursor.previousSibling);
       charIndex--;
     }
   } else {
-    // Typing
     if (currentPhrase.charAt(charIndex) === ' ') {
       loopTextElem.insertBefore(document.createTextNode(' '), heroCursor);
     } else {
@@ -112,40 +96,32 @@ function typeWriter() {
     charIndex++;
   }
 
-  // Speed Logic
   let typeSpeed = 50;
   if (isDeleting) typeSpeed = 25;
 
-  // Logic to switch states
   if (!isDeleting && charIndex === currentPhrase.length) {
-    // Finished typing phrase
-    typeSpeed = 1000; // Pause at end
+    typeSpeed = 1000;
     isDeleting = true;
   } else if (isDeleting && charIndex === 0) {
-    // Finished deleting phrase
     isDeleting = false;
     loopIndex = (loopIndex + 1) % loopPhrases.length;
-    typeSpeed = 250; // Pause before new word
+    typeSpeed = 250;
   }
 
   setTimeout(typeWriter, typeSpeed);
 }
 
-// Start Typewriter on Load
 window.addEventListener('load', () => {
   if (mainTextElem && loopTextElem) {
-    // Reset and start
     mainTextElem.innerHTML = '';
     heroCursor = createCursor();
     mainTextElem.appendChild(heroCursor);
-    // Clear loop text
     loopTextElem.innerHTML = '';
 
     typeWriter();
   }
 });
 
-// Close menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('active');
@@ -153,27 +129,23 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Category Transitions
 const categoryCards = document.querySelectorAll('.category-card');
 
 function handleTransition(e) {
   e.preventDefault();
   const targetUrl = e.currentTarget.href;
 
-  // Add fade-out class
   document.body.classList.add('fade-out');
 
-  // Wait for animation then navigate
   setTimeout(() => {
     window.location.href = targetUrl;
-  }, 300); // Matches CSS duration
+  }, 300);
 }
 
 categoryCards.forEach(card => {
   card.addEventListener('click', handleTransition);
 });
 
-// Scroll Reveal Animation & About Typewriter
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px"
@@ -182,7 +154,6 @@ const observerOptions = {
 const aboutTitleElem = document.getElementById('about-title');
 const aboutBioElem = document.getElementById('about-bio');
 let aboutTitleText = "About Me";
-// Bio text split by lines
 let aboutBioLines = [
   "I craft digital experiences with a focus on minimalism, fluid motion, and timeless aesthetics.",
   "With a background in both graphic design and photography, I bring a unique perspective to every project.",
@@ -191,7 +162,6 @@ let aboutBioLines = [
 
 let aboutTyped = false;
 
-// Helper to create cursor
 function createCursor() {
   const span = document.createElement('span');
   span.className = 'cursor';
@@ -224,7 +194,7 @@ function typeGeneric(element, text, speed, callback) {
       }
       setTimeout(type, speed);
     } else {
-      element.removeChild(cursor); // Remove cursor at end
+      element.removeChild(cursor);
       if (callback) callback();
     }
   }
@@ -251,7 +221,7 @@ function typeLine(element, text, speed) {
       i++;
       setTimeout(type, speed);
     } else {
-      element.removeChild(cursor); // Remove cursor at end
+      element.removeChild(cursor);
     }
   }
   if (text.length > 0) type();
@@ -261,9 +231,6 @@ function typeLine(element, text, speed) {
   }
 }
 
-// ------------------------------------
-// Language Switcher Logic
-// ------------------------------------
 const translations = {
   en: {
     nav_design: "Graphic Design",
@@ -285,7 +252,6 @@ const translations = {
     cat_design: "Graphic Design",
     cat_photo: "Photography",
     lang_label: "Language",
-    // New Page Translations
     page_graphic_title: "Graphic Design",
     page_graphic_subtitle: "Select a Category",
     page_photo_title: "Photography",
@@ -293,16 +259,13 @@ const translations = {
     page_frontend_title: "Frontend Projects",
     card_gallery: "Gallery",
     card_projects: "Frontend Projects",
-    // Gallery Page
     page_gallery_title: "Gallery",
-    page_gallery_subtitle: "Selected works 2023-2025",
-    // Photo Descriptions (Photography Page)
+    page_gallery_subtitle: "Selected works 2021-2025",
     photo_desc_1: "Urban Shadows",
     photo_desc_2: "Portraits",
     photo_desc_3: "Architecture",
     photo_desc_4: "Nature",
 
-    // New Photography Sections
     nav_fashion: "Fashion/Studio",
     nav_portraits: "Portraits",
     nav_protests: "Protests",
@@ -317,8 +280,7 @@ const translations = {
     title_street: "Street/Casual",
     desc_street: "The wild and the serene.",
 
-    // Gallery Descriptions
-    gallery_desc_1: "Brand Identity",
+    gallery_desc_1: "Floating Island",
     gallery_desc_2: "Typography Layout",
     gallery_desc_3: "Poster Design",
     gallery_desc_4: "Book Cover"
@@ -343,7 +305,6 @@ const translations = {
     cat_design: "Grafički Dizajn",
     cat_photo: "Fotografija",
     lang_label: "Jezik",
-    // New Page Translations
     page_graphic_title: "Grafički Dizajn",
     page_graphic_subtitle: "Izaberite Kategoriju",
     page_photo_title: "Fotografija",
@@ -351,17 +312,14 @@ const translations = {
     page_frontend_title: "Frontend Projekti",
     card_gallery: "Galerija",
     card_projects: "Frontend Projekti",
-    // Gallery Page
     page_gallery_title: "Galerija",
     page_gallery_subtitle: "Izabrani radovi 2023-2025",
 
-    // Photo Descriptions (Old - kept for reference if needed)
     photo_desc_1: "Urbane Senke",
     photo_desc_2: "Portreti",
     photo_desc_3: "Arhitektura",
     photo_desc_4: "Priroda",
 
-    // New Photography Sections
     nav_fashion: "Moda/Studio",
     nav_portraits: "Portreti",
     nav_protests: "Protesti",
@@ -376,7 +334,6 @@ const translations = {
     title_street: "Ulična/Kežual",
     desc_street: "Divlje i spokojno.",
 
-    // Gallery Descriptions
     gallery_desc_1: "Brend Identitet",
     gallery_desc_2: "Tipografski Raspored",
     gallery_desc_3: "Dizajn Postera",
@@ -388,43 +345,34 @@ let currentLang = 'en';
 
 function setLanguage(lang) {
   currentLang = lang;
-  localStorage.setItem('language', lang); // Save preference
+  localStorage.setItem('language', lang);
   const content = translations[lang];
 
-  // 1. Static Text Updates
-  // Nav
   const navLinksList = document.querySelectorAll('.nav-links a');
   if (navLinksList.length >= 3) {
     navLinksList[0].textContent = content.nav_design;
     navLinksList[1].textContent = content.nav_photo;
-    // The About link might refer to #about or a separate page depending on context,
-    // but for index.html it is typically the 3rd link.
-    // We check href to be safe if possible, or assume order.
     navLinksList[2].textContent = content.nav_about;
   }
 
-  // Category Cards (Index & Graphic Design page)
   const designCard = document.querySelector('.design-card h2');
-  if (designCard) designCard.textContent = content.cat_design; // Index
+  if (designCard) designCard.textContent = content.cat_design;
 
   const photoCard = document.querySelector('.photo-card h2');
-  if (photoCard) photoCard.textContent = content.cat_photo; // Index
+  if (photoCard) photoCard.textContent = content.cat_photo;
 
-  // Page Titles & Subtitles
   const pageTitle = document.getElementById('page-title');
   if (pageTitle) {
-    // Check which page by content or URL, but simpler: check ID presence
-    // We might need distinct IDs or logic.
-    // For now, let's assume specific IDs or use text injection carefully.
-    // Better: Use specific IDs for each page's title if they differ, or update based on current page.
     if (window.location.href.includes('graphic-design')) {
-      pageTitle.childNodes[0].nodeValue = content.page_graphic_title + " "; // Keep space for <br>
+      pageTitle.childNodes[0].nodeValue = content.page_graphic_title + " ";
     } else if (window.location.href.includes('photography')) {
       pageTitle.childNodes[0].nodeValue = content.page_photo_title + " ";
     } else if (window.location.href.includes('frontend-projects')) {
       pageTitle.textContent = content.page_frontend_title;
     } else if (window.location.href.includes('gallery')) {
-      pageTitle.textContent = content.page_gallery_title;
+      if (pageTitle.childNodes[0] && pageTitle.childNodes[0].nodeType === Node.TEXT_NODE) {
+        pageTitle.childNodes[0].nodeValue = content.page_gallery_title;
+      }
     }
   }
 
@@ -439,8 +387,6 @@ function setLanguage(lang) {
     }
   }
 
-  // Photo Descriptions (Photography Page)
-  // New Generic Logic for Photography Page Sections
   const photographyIds = [
     'nav-fashion', 'nav-portraits', 'nav-protests', 'nav-street',
     'title-fashion', 'title-portraits', 'title-protests', 'title-street',
@@ -449,14 +395,12 @@ function setLanguage(lang) {
 
   photographyIds.forEach(id => {
     const el = document.getElementById(id);
-    // Key format: id with underscores instead of hyphens
     const key = id.replace(/-/g, '_');
     if (el && content[key]) {
       el.textContent = content[key];
     }
   });
 
-  // Old specific IDs (Keep if needed for compatibility or remove if unused)
   const photoDesc1 = document.getElementById('photo-desc-1');
   if (photoDesc1) photoDesc1.textContent = content.photo_desc_1;
   const photoDesc2 = document.getElementById('photo-desc-2');
@@ -466,7 +410,6 @@ function setLanguage(lang) {
   const photoDesc4 = document.getElementById('photo-desc-4');
   if (photoDesc4) photoDesc4.textContent = content.photo_desc_4;
 
-  // Gallery Descriptions (Gallery Page)
   const galleryDesc1 = document.getElementById('gallery-desc-1');
   if (galleryDesc1) galleryDesc1.textContent = content.gallery_desc_1;
   const galleryDesc2 = document.getElementById('gallery-desc-2');
@@ -476,42 +419,55 @@ function setLanguage(lang) {
   const galleryDesc4 = document.getElementById('gallery-desc-4');
   if (galleryDesc4) galleryDesc4.textContent = content.gallery_desc_4;
 
-  // Cards on Graphic Design Page
-  // We can target them by href or specific class if added.
-  // Using selector for specific links:
-  const galleryCard = document.querySelector('a[href="gallery.html"] h2');
-  if (galleryCard) galleryCard.textContent = content.card_gallery;
+  const galleryLink = document.querySelector('a[href="gallery.html"]');
+  if (galleryLink) {
+    const h2 = galleryLink.querySelector('h2');
+    const wrapper = galleryLink.querySelector('.matrix-wrapper');
+    if (h2) {
+      h2.textContent = content.card_gallery;
+    } else if (wrapper) {
+      wrapper.innerHTML = content.card_gallery;
+      galleryLink.dataset.originalText = content.card_gallery;
+    } else {
+      let textNodeFound = false;
+      galleryLink.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim().length > 0) {
+          node.nodeValue = content.card_gallery;
+          textNodeFound = true;
+        }
+      });
+      if (!textNodeFound) galleryLink.textContent = content.card_gallery;
+    }
+  }
 
-  const projectsCard = document.querySelector('a[href="frontend-projects.html"] h2');
-  if (projectsCard) projectsCard.textContent = content.card_projects;
+  const projectsLink = document.querySelector('a[href="frontend-projects.html"]');
+  if (projectsLink) {
+    const h2 = projectsLink.querySelector('h2');
+    const wrapper = projectsLink.querySelector('.matrix-wrapper');
+    if (h2) {
+      h2.textContent = content.card_projects;
+    } else if (wrapper) {
+      wrapper.innerHTML = content.card_projects;
+      projectsLink.dataset.originalText = content.card_projects;
+    } else {
+      let textNodeFound = false;
+      projectsLink.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim().length > 0) {
+          node.nodeValue = content.card_projects;
+          textNodeFound = true;
+        }
+      });
+      if (!textNodeFound) projectsLink.textContent = content.card_projects;
+    }
+  }
 
 
-  // 2. Typewriter Updates (Variables)
-  // We need to update the global variables used by typeWriter()
-  // Note: const cannot be reassigned. We should have defined them with let if we wanted to change them.
-  // BUT: We can't change 'const mainText'.
-  // FIX: We will modify the typeWriter function to read from a 'currentText' object or simpler,
-  // just re-assign the logic if we refactor variables to 'let'.
-  //
-  // Since I cannot change 'const' declarations at the top of the file without a full rewrite,
-  // I will rely on reloading the page or handling it differently?
-  // NO, reloading is bad. I must refactor the variables to 'let' at the top of the file first.
-
-  // See next step for refactoring 'const' to 'let'.
   mainText = content.hero_main;
   loopPhrases = content.hero_loop;
   aboutTitleText = content.about_title;
   aboutBioLines = content.about_bio;
 
-  // Restart Hero Typewriter
   if (mainTextElem && loopTextElem) {
-    // Clear timeouts? ideally yes but simplistic restart:
-    // We might need to implement a 'reset' method, or just rely on overwriting
-    // For now, let's just clear and reset state if possible.
-    // A full reset is complex without global timer IDs.
-    // Let's at least update the current loop logic if it's running.
-
-    // Force reset of hero
     isLooping = false;
     isDeleting = false;
     charIndex = 0;
@@ -519,27 +475,14 @@ function setLanguage(lang) {
     mainTextElem.innerHTML = '';
     loopTextElem.innerHTML = '';
 
-    // Remove old cursor if present
     if (heroCursor && heroCursor.parentNode) {
       heroCursor.parentNode.removeChild(heroCursor);
     }
     heroCursor = createCursor();
     mainTextElem.appendChild(heroCursor);
-
-    // Note: Existing timeouts will still fire! This is a potential bug source.
-    // ideally we track the timeout ID.
-    // For this task, assuming user won't spam click, we can just hope or
-    // add a global 'timeoutId' variable.
   }
 
-  // Restart About Typewriter
-  // Only if it was already visible/typed would we want to re-type it?
-  // Or just update content?
-  // If we re-type it might be annoying.
-  // Let's just reset the flag so it types again if we scroll away and back?
-  // Or actually re-trigger it immediately if visible.
-  if (aboutTyped && aboutTitleElem && aboutBioElem) { // if already typed
-    // Re-trigger typing
+  if (aboutTyped && aboutTitleElem && aboutBioElem) {
     typeGeneric(aboutTitleElem, aboutTitleText, 50);
     aboutBioElem.innerHTML = '';
     aboutBioLines.forEach((line) => {
@@ -554,13 +497,11 @@ function setLanguage(lang) {
   }
 }
 
-// Check LocalStorage on Load
 window.addEventListener('load', () => {
   const savedLang = localStorage.getItem('language');
   if (savedLang && translations[savedLang]) {
     setLanguage(savedLang);
 
-    // Update toggle icon
     const langToggle = document.getElementById('lang-toggle');
     const activeBtn = document.querySelector(`.lang-option[data-lang="${savedLang}"]`);
     if (langToggle && activeBtn) {
@@ -571,7 +512,6 @@ window.addEventListener('load', () => {
   }
 });
 
-// Language Dropdown Toggle
 const langToggle = document.getElementById('lang-toggle');
 const langMenu = document.getElementById('lang-menu');
 const langOptions = document.querySelectorAll('.lang-option');
@@ -593,7 +533,6 @@ if (langToggle && langMenu) {
       const selectedLang = btn.getAttribute('data-lang');
       setLanguage(selectedLang);
 
-      // Update toggle icon to match selected
       const selectedSvg = btn.querySelector('svg').cloneNode(true);
       langToggle.innerHTML = '';
       langToggle.appendChild(selectedSvg);
@@ -608,24 +547,20 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
 
-      // Trigger About Typewriter
       if (entry.target.id === 'about' && !aboutTyped) {
         aboutTyped = true;
-        // Start with Title
         typeGeneric(aboutTitleElem, aboutTitleText, 80);
 
-        // Prepare Bio Lines
-        aboutBioElem.innerHTML = ''; // Clear
+        aboutBioElem.innerHTML = '';
         aboutBioLines.forEach((line, index) => {
           const lineContainer = document.createElement('div');
-          lineContainer.style.marginBottom = line === "" ? "1.5rem" : "0.5rem"; // Spacing for empty line
-          lineContainer.style.minHeight = "1.5rem"; // Reserve space
+          lineContainer.style.marginBottom = line === "" ? "1.5rem" : "0.5rem";
+          lineContainer.style.minHeight = "1.5rem";
           aboutBioElem.appendChild(lineContainer);
 
-          // Type all lines simultaneously (slightly staggered start if desired, or pure simultaneous)
           setTimeout(() => {
             typeLine(lineContainer, line, 15);
-          }, 100); // Start bio shortly after title starts
+          }, 100);
         });
       }
     }
@@ -637,9 +572,6 @@ document.querySelectorAll('.scroll-reveal').forEach(el => {
   observer.observe(el);
 });
 
-// ------------------------------------
-// Local Navbar Active State
-// ------------------------------------
 const localNavLinks = document.querySelectorAll('.local-nav a');
 const sections = document.querySelectorAll('.collection-section');
 
@@ -656,7 +588,7 @@ if (localNavLinks.length > 0) {
 
     localNavLinks.forEach(link => {
       link.classList.remove('active');
-      const href = link.getAttribute('href').substring(1); // Remove #
+      const href = link.getAttribute('href').substring(1);
       if (current && href === current) {
         link.classList.add('active');
       }
@@ -664,9 +596,6 @@ if (localNavLinks.length > 0) {
   });
 }
 
-// ------------------------------------
-// Back to Top functionality
-// ------------------------------------
 const backToTopBtn = document.getElementById('back-to-top');
 
 if (backToTopBtn) {
@@ -686,9 +615,6 @@ if (backToTopBtn) {
   });
 }
 
-// ------------------------------------
-// Lightbox Logic
-// ------------------------------------
 const lightbox = document.getElementById('lightbox');
 if (lightbox) {
   const lightboxImg = document.getElementById('lightbox-img');
@@ -700,23 +626,20 @@ if (lightbox) {
   let currentCollectionItems = [];
   let currentIndex = -1;
 
-  // Open Lightbox
   document.querySelectorAll('.grid-item').forEach(item => {
     item.addEventListener('click', () => {
       const collectionName = item.parentElement.getAttribute('data-collection');
 
-      // Get all items in this specific collection
       currentCollectionItems = Array.from(document.querySelectorAll(`.portfolio-grid[data-collection="${collectionName}"] .grid-item`));
 
       currentIndex = currentCollectionItems.indexOf(item);
 
       updateLightboxContent();
       lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      document.body.style.overflow = 'hidden';
     });
   });
 
-  // Close Lightbox
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
@@ -724,14 +647,12 @@ if (lightbox) {
 
   closeBtn.addEventListener('click', closeLightbox);
 
-  // Close on outside click
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
       closeLightbox();
     }
   });
 
-  // Zoom & Pan Variables
   let zoomLevel = 1;
   let isDragging = false;
   let startX = 0;
@@ -741,12 +662,10 @@ if (lightbox) {
   const MIN_ZOOM = 1;
   const MAX_ZOOM = 5;
 
-  // Touch Variables
   let initialPinchDistance = 0;
   let initialZoom = 1;
   let lastTouchX = 0;
   let lastTouchY = 0;
-  // Swipe Variables
   let swipeStartX = 0;
   let swipeStartY = 0;
   let isSwipeDetection = false;
@@ -763,16 +682,13 @@ if (lightbox) {
     lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${zoomLevel})`;
   }
 
-  // Zoom on Wheel
   lightbox.addEventListener('wheel', (e) => {
-    // Only zoom if hovering over the image or wrapper
     if (!e.target.closest('.lightbox-content-wrapper')) return;
 
     e.preventDefault();
-    const delta = e.deltaY * -0.001; // Scale factor
+    const delta = e.deltaY * -0.001;
     const newZoom = Math.min(Math.max(zoomLevel + delta, MIN_ZOOM), MAX_ZOOM);
 
-    // If zooming out to 1, reset translate to keep it centered
     if (newZoom === 1) {
       translateX = 0;
       translateY = 0;
@@ -782,14 +698,13 @@ if (lightbox) {
     updateTransform();
   }, { passive: false });
 
-  // Panning Support (Mouse)
   lightboxImg.addEventListener('mousedown', (e) => {
     if (zoomLevel > 1) {
       isDragging = true;
       startX = e.clientX - translateX;
       startY = e.clientY - translateY;
       lightboxImg.style.cursor = 'grabbing';
-      e.preventDefault(); // Prevent default drag behavior
+      e.preventDefault();
     }
   });
 
@@ -808,10 +723,8 @@ if (lightbox) {
     }
   });
 
-  // Touch Support (Pinch & Pan)
   lightbox.addEventListener('touchstart', (e) => {
     if (e.touches.length === 2) {
-      // Pinch Start
       isDragging = false;
       const t1 = e.touches[0];
       const t2 = e.touches[1];
@@ -819,12 +732,10 @@ if (lightbox) {
       initialZoom = zoomLevel;
     } else if (e.touches.length === 1) {
       if (zoomLevel > 1) {
-        // Pan Start (only if zoomed in)
         isDragging = true;
         lastTouchX = e.touches[0].clientX;
         lastTouchY = e.touches[0].clientY;
       } else {
-        // Swipe Start (if not zoomed)
         isSwipeDetection = true;
         swipeStartX = e.touches[0].clientX;
         swipeStartY = e.touches[0].clientY;
@@ -834,8 +745,7 @@ if (lightbox) {
 
   lightbox.addEventListener('touchmove', (e) => {
     if (e.touches.length === 2) {
-      // Pinch Move
-      e.preventDefault(); // Prevent page scroll
+      e.preventDefault();
       const t1 = e.touches[0];
       const t2 = e.touches[1];
       const currentDistance = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
@@ -853,7 +763,6 @@ if (lightbox) {
       }
     } else if (e.touches.length === 1) {
       if (zoomLevel > 1 && isDragging) {
-        // Pan Move
         e.preventDefault();
         const currentX = e.touches[0].clientX;
         const currentY = e.touches[0].clientY;
@@ -867,13 +776,11 @@ if (lightbox) {
         lastTouchY = currentY;
         updateTransform();
       } else if (isSwipeDetection) {
-        // Swipe Move
         const currentX = e.touches[0].clientX;
         const currentY = e.touches[0].clientY;
         const diffX = currentX - swipeStartX;
         const diffY = currentY - swipeStartY;
 
-        // If horizontal movement is dominant, prevent scrolling
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
           e.preventDefault();
         }
@@ -892,7 +799,7 @@ if (lightbox) {
         const endX = e.changedTouches[0].clientX;
         const diffX = endX - swipeStartX;
 
-        if (Math.abs(diffX) > 50) { // 50px threshold
+        if (Math.abs(diffX) > 50) {
           if (diffX > 0) {
             showPrev();
           } else {
@@ -904,17 +811,12 @@ if (lightbox) {
     }
   });
 
-  // Navigation
   function updateLightboxContent() {
     if (currentIndex < 0 || currentIndex >= currentCollectionItems.length) return;
 
-    // Reset Zoom State on change
     resetZoom();
 
     const item = currentCollectionItems[currentIndex];
-    // In a real scenario, you'd swap for a high-res image. 
-    // Here we might just use the placeholder color or a real image if it existed.
-    // For now, let's look for an img tag or use the placeholder color.
 
     const img = item.querySelector('img');
     const placeholder = item.querySelector('.placeholder-image');
@@ -925,18 +827,14 @@ if (lightbox) {
       lightboxImg.src = img.src;
       lightboxImg.style.backgroundColor = '';
     } else if (placeholder) {
-      // Create a dummy colored image or just set background
-      // Since lightbox-img is an IMG tag, we can set a data URI or just styling style.
       lightboxImg.src = '';
       lightboxImg.style.backgroundColor = placeholder.style.backgroundColor;
-      // We need it to have dimensions to be visible if src is empty
       lightboxImg.style.width = '800px';
       lightboxImg.style.height = '600px';
     }
 
     lightboxCaption.textContent = title;
 
-    // Update Arrow State
     if (currentIndex <= 0) {
       prevBtn.classList.add('disabled');
     } else {
@@ -975,20 +873,19 @@ if (lightbox) {
   }
 
   nextBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent closing lightbox
+    e.stopPropagation();
     if (currentIndex < currentCollectionItems.length - 1) {
       showNext();
     }
   });
 
   prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent closing lightbox
+    e.stopPropagation();
     if (currentIndex > 0) {
       showPrev();
     }
   });
 
-  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
 
@@ -998,43 +895,29 @@ if (lightbox) {
   });
 }
 
-// ------------------------------------
-// Photography Page Header Typewriter
-// ------------------------------------
 window.addEventListener('load', () => {
-  // Check if we are on the photography page
   const pageTitle = document.getElementById('page-title');
   const pageSubtitle = document.getElementById('page-subtitle');
 
-  // Use a class or ID check on body or URL to confirm page
   if (document.body.classList.contains('static-nav-page') && pageTitle && pageSubtitle) {
 
-    // Prevent flash of text: hide immediately
     pageTitle.style.visibility = 'hidden';
     pageTitle.style.opacity = '0';
 
-    // We wait a moment for the initial static text to be set by setLanguage (if applicable)
-    // Then we overwrite it with the typewriter effect.
     setTimeout(() => {
-      // Get the text to type (from current content or specific request)
-      // The user wants "Photography" then "Equipment..."
 
-      const titleText = pageTitle.childNodes[0].nodeValue.trim(); // "Photography"
-      const subtitleText = pageSubtitle.textContent.trim(); // "Equipment..."
+      const titleText = pageTitle.childNodes[0].nodeValue.trim();
+      const subtitleText = pageSubtitle.textContent.trim();
 
-      // Reset visibility for typing
+      // Lock height to prevent layout shift
+      const titleHeight = pageTitle.getBoundingClientRect().height;
+      pageTitle.style.height = `${titleHeight}px`;
+
       pageTitle.style.visibility = 'visible';
       pageTitle.style.opacity = '1';
 
-      // Clear and Type Title
-      // Helper to clear text node but keep subtitle span
       pageTitle.childNodes[0].nodeValue = "";
 
-      // We need a custom typer for the text node part to avoid wiping the span
-      // Actually typeGeneric wipes innerHTML.
-      // So we must handle the span separately or reconstruct it.
-
-      // Strategy: Wipe everything, type Title, then append Subtitle span and type it.
       pageTitle.innerHTML = "";
 
       const cursor = createCursor();
@@ -1047,28 +930,166 @@ window.addEventListener('load', () => {
           const charSpan = document.createElement('span');
           charSpan.textContent = char;
           charSpan.className = 'matrix-char';
-          // Insert before cursor
           pageTitle.insertBefore(charSpan, cursor);
           i++;
           setTimeout(typeTitle, 25);
         } else {
-          // Title done.
           pageTitle.removeChild(cursor);
           pageTitle.appendChild(document.createElement('br'));
 
-          // Create Subtitle Span
           const newSubtitle = document.createElement('span');
           newSubtitle.className = 'subtitle';
           newSubtitle.id = 'page-subtitle';
           pageTitle.appendChild(newSubtitle);
 
-          // Type Subtitle
-          typeGeneric(newSubtitle, subtitleText, 20);
+          typeGeneric(newSubtitle, subtitleText, 20, () => {
+            pageTitle.style.height = ''; // Reset height after all typing is done
+          });
         }
       }
 
       typeTitle();
 
-    }, 500); // Small delay after load
+    }, 500);
   }
 });
+
+window.addEventListener('load', () => {
+  if (document.body.classList.contains('graphic-design-page')) {
+    const pageTitle = document.getElementById('page-title');
+    const pageSubtitle = document.getElementById('page-subtitle');
+    const categoryHeaders = document.querySelectorAll('.category-card');
+
+    categoryHeaders.forEach(header => {
+      const text = header.textContent.trim();
+
+      const clone = document.createElement('span');
+      clone.style.font = getComputedStyle(header).font;
+      clone.style.textTransform = getComputedStyle(header).textTransform;
+      clone.style.visibility = 'hidden';
+      clone.style.position = 'absolute';
+      document.body.removeChild(clone);
+
+      header.dataset.originalText = text;
+      header.innerHTML = '';
+
+      const wrapper = document.createElement('span');
+
+      if (window.innerWidth > 768) {
+        wrapper.style.width = `${textWidth + 10}px`;
+        wrapper.style.textAlign = 'left';
+        wrapper.style.whiteSpace = 'nowrap';
+      } else {
+        wrapper.style.textAlign = 'center';
+        wrapper.style.width = 'auto';
+        wrapper.style.whiteSpace = 'normal';
+      }
+
+      wrapper.style.display = 'inline-block';
+      wrapper.style.overflow = 'hidden';
+      wrapper.style.verticalAlign = 'top';
+      wrapper.className = 'matrix-wrapper';
+      header.appendChild(wrapper);
+
+      header.dataset.wrapperRef = 'true';
+    });
+
+    if (pageTitle) {
+      pageTitle.style.visibility = 'hidden';
+      pageTitle.style.opacity = '0';
+    }
+
+    categoryHeaders.forEach(header => {
+      header.style.visibility = 'hidden';
+      header.style.opacity = '0';
+    });
+
+    setTimeout(() => {
+      if (pageTitle) {
+        const titleText = pageTitle.childNodes[0].nodeValue.trim();
+        const subtitleText = pageSubtitle ? pageSubtitle.textContent.trim() : '';
+
+        pageTitle.style.visibility = 'visible';
+        pageTitle.style.opacity = '1';
+        pageTitle.innerHTML = "";
+
+        const titleSpan = document.createElement('span');
+        pageTitle.appendChild(titleSpan);
+        typeGeneric(titleSpan, titleText, 50);
+
+        if (subtitleText) {
+          pageTitle.appendChild(document.createElement('br'));
+          const subtitleSpan = document.createElement('span');
+          subtitleSpan.className = 'subtitle';
+          subtitleSpan.id = 'page-subtitle';
+          pageTitle.appendChild(subtitleSpan);
+          typeGeneric(subtitleSpan, subtitleText, 30);
+        }
+      }
+
+      categoryHeaders.forEach((header, index) => {
+        header.style.visibility = 'visible';
+        header.style.opacity = '1';
+        const text = header.dataset.originalText;
+        const wrapper = header.querySelector('.matrix-wrapper');
+
+        typeGeneric(wrapper, text, 40, () => {
+          wrapper.innerHTML = text;
+          wrapper.style.width = 'fit-content';
+          wrapper.style.whiteSpace = 'normal';
+          wrapper.style.overflow = 'visible';
+          wrapper.classList.add('fire-gradient-text');
+        });
+      });
+
+    }, 100);
+  }
+});
+
+window.addEventListener('load', () => {
+  const gridItems = document.querySelectorAll('.grid-item');
+
+  if (gridItems.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const descriptions = document.querySelectorAll('.item-info h3');
+    descriptions.forEach(desc => {
+      desc.dataset.originalText = desc.textContent;
+      desc.style.visibility = 'hidden';
+    });
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          target.classList.add('visible');
+
+          const desc = target.querySelector('.item-info h3');
+          if (desc && !desc.dataset.typed) {
+            desc.dataset.typed = 'true';
+
+            const height = desc.getBoundingClientRect().height;
+            desc.style.height = `${height}px`;
+            desc.style.visibility = 'visible';
+            const text = desc.dataset.originalText;
+
+            typeGeneric(desc, text, 45, () => {
+              desc.style.height = '';
+            });
+          }
+
+          observer.unobserve(target);
+        }
+      });
+    }, observerOptions);
+
+    gridItems.forEach(item => {
+      observer.observe(item);
+    });
+  }
+});
+

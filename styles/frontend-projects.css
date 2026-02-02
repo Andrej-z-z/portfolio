@@ -1,7 +1,3 @@
-/* Global styles moved and linked via global.css */
-/* Collection Section Removed */
-
-/* Home Page Styles */
 .intro-section {
   margin: 20px 0px;
   padding: 60px 0;
@@ -18,16 +14,13 @@
   letter-spacing: -0.03em;
   margin-bottom: 24px;
   min-height: 3.5em;
-  /* Prevent layout shift */
 }
 
-/* Social Links */
 .social-links {
   display: flex;
   gap: 15px;
   margin-top: 20px;
   justify-content: center;
-  /* Center icons below image */
 }
 
 .social-icon {
@@ -50,16 +43,13 @@
   color: #ffffff;
 }
 
-/* Typewriter Loop Removed */
 
 .subtitle {
   color: var(--accent-color);
   font-weight: 400;
 }
 
-/* Bio & Category Styles Removed */
 
-/* Page Exit Animations */
 body {
   background-color: var(--bg-color);
 }
@@ -77,9 +67,7 @@ body.fade-out .page-container {
   opacity: 0;
 }
 
-/* Arrows Removed */
 
-/* Portfolio Pages (Graphic Design / Photography) */
 .page-header {
   margin-bottom: 60px;
   opacity: 0;
@@ -90,9 +78,7 @@ body.fade-out .page-container {
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 0.5em;
-  /* Reduced from default */
   min-height: auto;
-  /* Remove excessive min-height */
   line-height: 1.2;
 }
 
@@ -122,7 +108,6 @@ body.fade-out .page-container {
   animation: fadeInUp 0.6s var(--ease-smooth) forwards;
 }
 
-/* Stagger animations for grid items */
 .grid-item:nth-child(1) {
   animation-delay: 0.2s;
 }
@@ -154,7 +139,6 @@ body.fade-out .page-container {
 .placeholder-image {
   width: 100%;
   padding-bottom: 100%;
-  /* Square Aspect Ratio by default */
   background-color: var(--gray-medium);
   border-radius: 4px;
   transition: opacity 0.3s ease;
@@ -175,37 +159,21 @@ body.fade-out .page-container {
   margin-top: 8px;
 }
 
-/* Hover Effect for Gallery Images */
 .portfolio-grid .grid-item:hover img,
 .portfolio-grid .grid-item:hover .placeholder-image {
   outline: 1px solid var(--accent-color);
   outline-offset: 1px;
 }
 
-/* Lightbox Removed */
 
-/* Back to Top moved to global.css */
-
-
-/* Keyframes moved to global.css */
-
-/* Hamburger Menu moved to global.css */
-
-/* About Image Removed */
-
-/* Responsive */
-/* Mobile adjustments for Local Nav */
 @media (max-width: 768px) {
-  /* Responsive About Removed */
 
   .navbar {
     padding: 20px;
   }
 
-  /* Local Nav & Collection & Grid Responsive Removed */
 }
 
-/* Tech Stack Removed */
 .about-text h1 {
   min-height: 0;
   text-align: center;
@@ -223,56 +191,38 @@ body.fade-out .page-container {
 }
 
 
-/* Mobile Social Links moved to global.css */
-
-/* Static Navbar for Photography Page */
 body.static-nav-page .navbar {
   position: absolute;
-  /* Not fixed */
   background: transparent;
-  /* Optional: blend with top if needed */
   backdrop-filter: none;
-  /* Remove blur if it interferes */
 }
 
-/* Adjust container padding since nav is no longer fixed */
 body.static-nav-page .photography-container {
   padding-top: 0;
-  /* Remove the space reserved for fixed nav */
   margin-top: 100px;
-  /* initial offset for visual balance */
 }
 
-/* Ensure Local Nav sticks to very top */
 body.static-nav-page .local-nav {
   position: sticky;
   top: 0;
-  /* Stick to viewport top */
   z-index: 95;
   background: rgba(107, 0, 12, 0.95);
-  /* Slightly more opaque for readability */
   border-bottom: 1px solid var(--gray-medium);
   margin-top: 0;
 }
 
-/* Fix for Photography Header Layout Shift */
 body.static-nav-page #page-title {
   min-height: 4.5em;
-  /* Reserve space for Title + Subtitle */
   display: block;
-  /* Revert to block to allow inline spans to flow */
   margin-bottom: 20px;
-  /* Ensure space below regardless of content */
 }
 
 @media (max-width: 768px) {
   body.static-nav-page #page-title {
     min-height: 7.5em;
-    /* More space for wrapping subtitle on mobile */
   }
 }
 
-/* Mobile specific tweaks for static nav page */
 @media (max-width: 768px) {
   body.static-nav-page .navbar {
     position: absolute;
@@ -283,15 +233,10 @@ body.static-nav-page #page-title {
     margin-top: 80px;
   }
 
-  /* Fix hamburger visibility when menu is active on static page */
   body.static-nav-page .hamburger.active {
     position: fixed;
     top: 28px;
-    /* Aligned with padding 20px + margin 6-8px approx */
     right: 20px;
     z-index: 110;
-    /* Higher than nav-links */
   }
 }
-
-/* Social Links moved to global.css */
