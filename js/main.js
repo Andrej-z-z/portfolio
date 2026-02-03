@@ -155,9 +155,10 @@ const aboutTitleElem = document.getElementById('about-title');
 const aboutBioElem = document.getElementById('about-bio');
 let aboutTitleText = "About Me";
 let aboutBioLines = [
-  "I craft digital experiences with a focus on minimalism, fluid motion, and timeless aesthetics.",
-  "With a background in both graphic design and photography, I bring a unique perspective to every project.",
-  "My work is driven by a passion for storytelling and a dedication to detail.",
+  "Hi, I’m Andrej, a graphic designer and front-end focused creative from Belgrade, Serbia. I’ve always been interested in technology and computers, from web standards and interface design to networking and how systems work behind the scenes.",
+  "I work at the intersection of graphic design, front-end development, and photography, with a style rooted in minimalism. I design clear, structured interfaces and build them using HTML, CSS, and JavaScript, currently strengthening my foundation in JS. My design workflow is based in the Adobe suite, with a strong emphasis on Photoshop, Illustrator and Lightroom.",
+  "Photography influences how I see and design, especially when it comes to composition, light, and attention to detail. Whether I’m designing, coding, or shooting, I focus on clarity, usability, and a clean, modern result.",
+  "Always learning. Always refining."
 ];
 
 let aboutTyped = false;
@@ -245,9 +246,10 @@ const translations = {
     ],
     about_title: "About Me",
     about_bio: [
-      "I craft digital experiences with a focus on minimalism, fluid motion, and timeless aesthetics.",
-      "With a background in both graphic design and photography, I bring a unique perspective to every project.",
-      "My work is driven by a passion for storytelling and a dedication to detail."
+      "Hi, I’m Andrej, a graphic designer and front-end focused creative from Belgrade, Serbia. I’ve always been interested in technology and computers, from web standards and interface design to networking and how systems work behind the scenes.",
+      "I work at the intersection of graphic design, front-end development, and photography, with a style rooted in minimalism. I design clear, structured interfaces and build them using HTML, CSS, and JavaScript, currently strengthening my foundation in JS. My design workflow is based in the Adobe suite, with a strong emphasis on typography, layout, and consistency.",
+      "Photography influences how I see and design, especially when it comes to composition, light, and attention to detail. Whether I’m designing, coding, or shooting, I focus on clarity, usability, and a clean, modern result.",
+      "Always learning. Always refining."
     ],
     cat_design: "Graphic Design",
     cat_photo: "Photography",
@@ -298,9 +300,10 @@ const translations = {
     ],
     about_title: "O Meni",
     about_bio: [
-      "Stvaram digitalna iskustva sa fokusom na minimalizam, fluidnost i bezvremensku estetiku.",
-      "Sa iskustvom u grafičkom dizajnu i fotografiji, donosim jedinstvenu perspektivu svakom projektu.",
-      "Moj rad pokreće strast prema pripovedanju i posvećenost detaljima.",
+      "Zdravo, ja sam Andrej, grafički dizajner sa fokusom na front-end iz Beograda, Srbija. Uvek su me zanimale tehnologija i računari, od web standarda i dizajna interfejsa do umrežavanja i načina na koji sistemi funkcionišu iza kulisa.",
+      "Radim na preseku grafičkog dizajna, front-end razvoja i fotografije, sa stilom utemeljenim u minimalizmu. Dizajniram jasne, strukturirane interfejse i gradim ih koristeći HTML, CSS i JavaScript, trenutno jačajući svoju osnovu u JS-u. Moj dizajnerski tok rada je zasnovan na Adobe paketu, sa jakim naglaskom na Photoshop, Illustrator i Lightroom.",
+      "Fotografija utiče na to kako vidim i dizajniram, posebno kada je reč o kompoziciji, svetlu i posvećenosti detaljima. Bilo da dizajniram, kodiram ili fotografišem, fokusiram se na jasnoću, upotrebljivost i čist, moderan rezultat.",
+      "Uvek učim. Uvek se usavršavam."
     ],
     cat_design: "Grafički Dizajn",
     cat_photo: "Fotografija",
