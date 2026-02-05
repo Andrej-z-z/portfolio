@@ -434,4 +434,6 @@ body.loaded .page-container {
   z-index: -10;
   overflow: hidden;
   pointer-events: none;
+
 }
+
