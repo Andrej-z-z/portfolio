@@ -31,6 +31,20 @@
   letter-spacing: 0.05em;
   opacity: 0.9;
   color: var(--text-color);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.local-nav a::after {
+  content: attr(data-text);
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  font-weight: 600;
 }
 
 .local-nav a:hover,

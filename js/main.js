@@ -401,6 +401,7 @@ function setLanguage(lang) {
     const key = id.replace(/-/g, '_');
     if (el && content[key]) {
       el.textContent = content[key];
+      el.setAttribute('data-text', content[key]);
     }
   });
 
