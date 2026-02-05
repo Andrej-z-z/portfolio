@@ -25,7 +25,6 @@ html {
 
 body {
   font-family: var(--font-main);
-  background-color: transparent;
   color: var(--text-color);
   line-height: 1.4;
   font-size: 16px;
@@ -437,3 +436,4 @@ body.loaded .page-container {
   pointer-events: none;
 
 }
+
