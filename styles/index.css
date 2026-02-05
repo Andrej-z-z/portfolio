@@ -31,6 +31,9 @@
   color: var(--accent-color);
   max-width: 600px;
   white-space: normal;
+  background: rgb(0, 0, 0, 0.2);
+  border-radius: 7px;
+  padding: 7px;
 }
 
 .category-nav {
@@ -86,10 +89,10 @@
   font-weight: 700;
   text-transform: uppercase;
   transition: transform 0.3s var(--ease-smooth), color 0.3s ease, background 0.3s ease;
-  /* Added background transition */
+
   transform-origin: center;
 
-  /* Persistent Fire Effect */
+
   background: linear-gradient(110deg, var(--text-color) 30%, #ff9900 45%, #ff2200 55%, var(--text-color) 70%);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -111,9 +114,9 @@
 
 .category-card:hover h2 {
   background: none;
-  /* Remove gradient */
+
   -webkit-text-fill-color: #ffffff;
-  /* Override transparent fill */
+
   color: #ffffff;
   transform: scale(1.1);
 }
@@ -271,15 +274,12 @@ body.fade-out .page-container {
 .tech-stack-section {
   overflow: hidden;
   padding: 80px 0;
-
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-
-  background-color: var(--bg-color);
   z-index: 1;
 }
 

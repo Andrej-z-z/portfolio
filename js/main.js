@@ -422,7 +422,7 @@ function setLanguage(lang) {
   const galleryDesc4 = document.getElementById('gallery-desc-4');
   if (galleryDesc4) galleryDesc4.textContent = content.gallery_desc_4;
 
-  // Handle Gallery Card Translation
+
   const galleryLink = document.querySelector('a[href="gallery.html"]');
   if (galleryLink) {
     const h2 = galleryLink.querySelector('h2');
@@ -433,7 +433,7 @@ function setLanguage(lang) {
       wrapper.innerHTML = content.card_gallery;
       galleryLink.dataset.originalText = content.card_gallery;
     } else {
-      // Direct text (before JS load or if structure differs)
+
       let textNodeFound = false;
       galleryLink.childNodes.forEach(node => {
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim().length > 0) {
@@ -445,7 +445,7 @@ function setLanguage(lang) {
     }
   }
 
-  // Handle Frontend Projects Card Translation
+
   const projectsLink = document.querySelector('a[href="frontend-projects.html"]');
   if (projectsLink) {
     const h2 = projectsLink.querySelector('h2');

@@ -91,7 +91,7 @@
   }
 }
 
-/* Fire Gradient Effect */
+
 .fire-gradient-text {
   background: linear-gradient(110deg, var(--text-color) 30%, #ff9900 45%, #ff2200 55%, var(--text-color) 70%);
   background-size: 200% auto;
@@ -221,7 +221,7 @@ body.static-nav-page #page-title {
     transform: none !important;
   }
 
-  /* Fix Intro Section for mobile */
+
   .intro-section {
     padding: 40px 20px;
   }
