@@ -503,7 +503,7 @@ function setLanguage(lang) {
   }
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('language');
   if (savedLang && translations[savedLang]) {
     setLanguage(savedLang);
@@ -901,7 +901,7 @@ if (lightbox) {
   });
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const pageTitle = document.getElementById('page-title');
   const pageSubtitle = document.getElementById('page-subtitle');
 
@@ -963,7 +963,7 @@ window.addEventListener('load', () => {
 // ------------------------------------
 // Graphic Design Page Matrix Effect
 // ------------------------------------
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   if (document.body.classList.contains('graphic-design-page')) {
     const pageTitle = document.getElementById('page-title');
     const pageSubtitle = document.getElementById('page-subtitle');
@@ -1079,7 +1079,7 @@ window.addEventListener('load', () => {
 });
 
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const gridItems = document.querySelectorAll('.grid-item');
 
   if (gridItems.length > 0) {
