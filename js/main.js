@@ -1002,7 +1002,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // On Mobile: Flex width to prevent overflow and ensure perfect centering
       if (window.innerWidth > 768) {
         wrapper.style.width = `${textWidth + 10}px`; // slight buffer
-        wrapper.style.textAlign = 'left'; // Type LTR inside the box
+        wrapper.style.textAlign = 'center'; // Type LTR inside the box
         wrapper.style.whiteSpace = 'nowrap'; // Prevent wrapping jitter
       } else {
         wrapper.style.textAlign = 'center';
