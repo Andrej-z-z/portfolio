@@ -1,9 +1,13 @@
 import { Renderer, Program, Mesh, Triangle } from 'https://esm.sh/ogl';
 
-const hexToRgb = hex => {
+const hexToRgb = (hex) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return [1, 1, 1];
-  return [parseInt(result[1], 16) / 255, parseInt(result[2], 16) / 255, parseInt(result[3], 16) / 255];
+  return [
+    parseInt(result[1], 16) / 255,
+    parseInt(result[2], 16) / 255,
+    parseInt(result[3], 16) / 255,
+  ];
 };
 
 const vertex = `#version 300 es
@@ -124,7 +128,7 @@ class Grainient {
       color1: '#FF9FFC',
       color2: '#5227FF',
       color3: '#B19EEF',
-      ...options
+      ...options,
     };
 
     this.init();
@@ -137,7 +141,7 @@ class Grainient {
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, 2),
     });
 
     this.gl = this.renderer.gl;
@@ -172,12 +176,14 @@ class Grainient {
         uContrast: { value: this.config.contrast },
         uGamma: { value: this.config.gamma },
         uSaturation: { value: this.config.saturation },
-        uCenterOffset: { value: new Float32Array([this.config.centerX, this.config.centerY]) },
+        uCenterOffset: {
+          value: new Float32Array([this.config.centerX, this.config.centerY]),
+        },
         uZoom: { value: this.config.zoom },
         uColor1: { value: new Float32Array(hexToRgb(this.config.color1)) },
         uColor2: { value: new Float32Array(hexToRgb(this.config.color2)) },
-        uColor3: { value: new Float32Array(hexToRgb(this.config.color3)) }
-      }
+        uColor3: { value: new Float32Array(hexToRgb(this.config.color3)) },
+      },
     });
 
     this.mesh = new Mesh(this.gl, { geometry, program: this.program });
@@ -212,23 +218,19 @@ class Grainient {
     this.resizeObserver.disconnect();
     try {
       this.container.removeChild(this.canvas);
-    } catch (e) {
-      // Ignore
-    }
+    } catch (e) {}
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('grainient-background');
   if (container) {
-
     new Grainient(container, {
       color1: '#6b000c',
       color2: '#8e0010',
       color3: '#bbbb00',
       grainAmount: 0.1,
-      zoom: 1.0
+      zoom: 1.0,
     });
   }
 });

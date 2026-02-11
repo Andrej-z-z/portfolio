@@ -16,7 +16,6 @@
   min-height: 3.5em;
 }
 
-
 #typewriter-loop {
   color: var(--accent-color);
 }
@@ -45,7 +44,6 @@
   margin-right: calc(50% - 50vw);
   padding: 160px 0px;
 }
-
 
 .category-card {
   background: transparent;
@@ -88,12 +86,20 @@
   font-size: 5rem;
   font-weight: 700;
   text-transform: uppercase;
-  transition: transform 0.3s var(--ease-smooth), color 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.3s var(--ease-smooth),
+    color 0.3s ease,
+    background 0.3s ease;
 
   transform-origin: center;
 
-
-  background: linear-gradient(110deg, var(--text-color) 30%, #ff9900 45%, #ff2200 55%, var(--text-color) 70%);
+  background: linear-gradient(
+    110deg,
+    var(--text-color) 30%,
+    #ff9900 45%,
+    #ff2200 55%,
+    var(--text-color) 70%
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -138,7 +144,6 @@ body.fade-out .page-container {
   opacity: 0;
 }
 
-
 .page-header {
   margin-bottom: 60px;
   opacity: 0;
@@ -165,7 +170,6 @@ body.fade-out .page-container {
   font-size: 1.1rem;
 }
 
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -187,7 +191,6 @@ body.fade-out .page-container {
     opacity: 1;
   }
 }
-
 
 .about-section {
   max-width: 1300px;
@@ -286,7 +289,6 @@ body.fade-out .page-container {
 .tech-track {
   display: flex;
   width: max-content;
-  animation: scrollRight 40s linear infinite;
 }
 
 .tech-icon {
@@ -375,7 +377,6 @@ body.fade-out .page-container {
     width: 100%;
   }
 }
-
 
 body.static-nav-page .navbar {
   position: absolute;

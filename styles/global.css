@@ -3,7 +3,7 @@
 :root {
   --bg-color: #6b000c;
   --text-color: #fff673;
-  --accent-color: #D4B200;
+  --accent-color: #d4b200;
   --gray-light: #7d000e;
   --gray-medium: #8e0010;
 
@@ -36,7 +36,9 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
 }
 
 a:hover {
@@ -169,7 +171,9 @@ img {
   cursor: pointer;
   padding: 2px;
   opacity: 0.7;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .lang-option:hover,
@@ -185,7 +189,10 @@ img {
   position: relative;
   padding: 5px;
   border-radius: 5px;
-  transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -215,7 +222,9 @@ img {
   width: 50px;
   height: 50px;
   color: var(--text-color);
-  transition: transform 0.3s var(--ease-smooth), color 0.3s ease;
+  transition:
+    transform 0.3s var(--ease-smooth),
+    color 0.3s ease;
 }
 
 .social-icon svg {
@@ -377,11 +386,6 @@ body.loaded .page-container {
   opacity: 1;
 }
 
-
-
-
-
-/* Cursor Effect */
 .cursor {
   display: inline-block;
   width: 0.6em;
@@ -393,7 +397,6 @@ body.loaded .page-container {
 }
 
 @keyframes blink {
-
   from,
   to {
     opacity: 1;
@@ -404,7 +407,6 @@ body.loaded .page-container {
   }
 }
 
-/* Matrix Character Effect */
 .matrix-char {
   color: #ffffff;
   text-shadow: 0 0 5px #ffffff;
@@ -422,10 +424,8 @@ body.loaded .page-container {
     color: inherit;
     text-shadow: none;
   }
-
 }
 
-/* Background Container */
 .grainient-background {
   position: fixed;
   top: 0;
@@ -435,6 +435,4 @@ body.loaded .page-container {
   z-index: -10;
   overflow: hidden;
   pointer-events: none;
-
 }
-
