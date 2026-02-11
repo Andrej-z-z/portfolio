@@ -297,6 +297,7 @@ body.fade-out .page-container {
   filter: grayscale(40%);
   opacity: 0.9;
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .tech-icon:hover {
@@ -424,4 +425,5 @@ body.static-nav-page #page-title {
     right: 20px;
     z-index: 110;
   }
+
 }
