@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="icon" type="image/x-icon" href="../imgs/icons/favicon.png" />
+    <title>Photography - Andrej Živković</title>
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/photography.css" />
+  </head>
+
+  <body class="static-nav-page">
+    <div id="grainient-background" class="grainient-background"></div>
+
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="../home/">
+          <span>ANDREJ</span>
+          <span>ŽIVKOVIĆ</span>
+        </a>
+      </div>
+      <div class="language-selector">
+        <button class="lang-btn" id="lang-toggle" aria-label="Select Language">
+          <svg viewBox="0 0 640 480" class="flag-icon">
+            <path fill="#012169" d="M0 0h640v480H0z" />
+            <path
+              fill="#FFF"
+              d="M75 0l244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-179L0 62V0h75zM0 160h640v160H0z"
+            />
+            <path fill="#C8102E" d="M0 193h640v96H0z" />
+            <path fill="#FFF" d="M280 0h80v480h-80zM0 200h640v80H0z" />
+            <path fill="#C8102E" d="M300 0h40v480h-40zM0 220h640v40H0z" />
+          </svg>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <button class="lang-option" data-lang="en">
+            <svg viewBox="0 0 640 480" class="flag-icon">
+              <path fill="#012169" d="M0 0h640v480H0z" />
+              <path
+                fill="#FFF"
+                d="M75 0l244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-179L0 62V0h75zM0 160h640v160H0z"
+              />
+              <path fill="#C8102E" d="M0 193h640v96H0z" />
+              <path fill="#FFF" d="M280 0h80v480h-80zM0 200h640v80H0z" />
+              <path fill="#C8102E" d="M300 0h40v480h-40zM0 220h640v40H0z" />
+            </svg>
+          </button>
+          <button class="lang-option" data-lang="sr">
+            <svg viewBox="0 0 640 480" class="flag-icon">
+              <path fill="#c6363c" d="M0 0h640v160H0z" />
+              <path fill="#0c4076" d="M0 160h640v160H0z" />
+              <path fill="#ffffff" d="M0 320h640v160H0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../graphic-design/">Graphic Design</a></li>
+        <li><a href="../photography/" class="active">Photography</a></li>
+        <li><a href="../home/#about">About</a></li>
+        <li class="mobile-social-links">
+          <a
+            href="https://www.instagram.com/fuji.adji/"
+            target="_blank"
+            class="social-icon"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="blank" target="_blank" class="social-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="mailto:pademika@gmail.com" class="social-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="page-container photography-container">
+      <header class="page-header">
+        <h1 id="page-title">
+          <br />
+          <span class="subtitle" id="page-subtitle"></span>
+        </h1>
+      </header>
+
+      <nav class="local-nav" id="local-nav">
+        <ul id="ul-li">
+          <li>
+            <a href="#fashion" id="nav-fashion" data-text="Fashion/Studio"
+              >Fashion/Studio</a
+            >
+          </li>
+          <li>
+            <a href="#portraits" id="nav-portraits" data-text="Portraits"
+              >Portraits</a
+            >
+          </li>
+          <li>
+            <a href="#protests" id="nav-protests" data-text="Protests"
+              >Protests</a
+            >
+          </li>
+          <li>
+            <a href="#streetcasual" id="nav-street" data-text="Street/Casual"
+              >Street/Casual</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <section id="fashion" class="collection-section">
+        <div class="collection-header">
+          <h2 id="title-fashion">Fashion/Studio</h2>
+          <p class="collection-desc" id="desc-fashion">
+            Photoshoots for brands and fashion photography.
+          </p>
+        </div>
+        <div class="portfolio-grid" data-collection="fashion">
+          <div class="grid-item medium" data-index="0">
+            <img
+              src="../imgs/fotografija/brend foto/la-crimosa/1.jpg"
+              alt="Brand Photography 1"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item small" data-index="1">
+            <img
+              src="../imgs/fotografija/brend foto/la-crimosa/2.jpg"
+              alt="Brand Photography 2"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="2">
+            <img
+              src="../imgs/fotografija/brend foto/la-crimosa/3.jpg"
+              alt="Brand Photography 3"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="3">
+            <img
+              src="../imgs/fotografija/brend foto/la-crimosa/4.jpg"
+              alt="Brand Photography 4"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="4">
+            <img
+              src="../imgs/fotografija/brend foto/la-crimosa/5.jpg"
+              alt="Brand Photography 5"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="5">
+            <img
+              src="../imgs/fotografija/brend foto/la-crimosa/6.jpg"
+              alt="Brand Photography 6"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="6">
+            <img
+              src="../imgs/fotografija/brend foto/la-crimosa/7.jpg"
+              alt="Brand Photography 7"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="7">
+            <img
+              src="../imgs/fotografija/brend foto/studio/1.jpg"
+              alt="Brand Photography 8"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="8">
+            <img
+              src="../imgs/fotografija/brend foto/studio/2.jpg"
+              alt="Brand Photography 9"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="9">
+            <img
+              src="../imgs/fotografija/brend foto/studio/3.jpg"
+              alt="Brand Photography 10"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="11">
+            <img
+              src="../imgs/fotografija/brend foto/studio/5.jpg"
+              alt="Brand Photography 12"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="12">
+            <img
+              src="../imgs/fotografija/brend foto/studio/6.jpg"
+              alt="Brand Photography 13"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="13">
+            <img
+              src="../imgs/fotografija/brend foto/studio/7.jpg"
+              alt="Brand Photography 14"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="14">
+            <img
+              src="../imgs/fotografija/brend foto/brat/1.jpg"
+              alt="Brand Photography 15"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="15">
+            <img
+              src="../imgs/fotografija/brend foto/brat/2.jpg"
+              alt="Brand Photography 16"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="16">
+            <img
+              src="../imgs/fotografija/brend foto/brat/3.jpg"
+              alt="Brand Photography 17"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="portraits" class="collection-section">
+        <div class="collection-header">
+          <h2 id="title-portraits">Portraits</h2>
+          <p class="collection-desc" id="desc-portraits">Faces and emotions.</p>
+        </div>
+        <div class="portfolio-grid" data-collection="portraits">
+          <div class="grid-item medium" data-index="4">
+            <img
+              src="../imgs/fotografija/portreti/anja/1.jpg"
+              alt="Portrait 5"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="5">
+            <img
+              src="../imgs/fotografija/portreti/anja/2.jpg"
+              alt="Portrait 6"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="6">
+            <img
+              src="../imgs/fotografija/portreti/anja/3.jpg"
+              alt="Portrait 7"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="0">
+            <img
+              src="../imgs/fotografija/portreti/ortaci/1.jpg"
+              alt="Portrait 1"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="1">
+            <img
+              src="../imgs/fotografija/portreti/ortaci/2.jpg"
+              alt="Portrait 2"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="2">
+            <img
+              src="../imgs/fotografija/portreti/ortaci/3.jpg"
+              alt="Portrait 3"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="3">
+            <img
+              src="../imgs/fotografija/portreti/ortaci/4.jpg"
+              alt="Portrait 4"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="4">
+            <img
+              src="../imgs/fotografija/portreti/ortaci/5.jpg"
+              alt="Portrait 5"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="5">
+            <img
+              src="../imgs/fotografija/portreti/ortaci/6.jpg"
+              alt="Portrait 6"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="protests" class="collection-section">
+        <div class="collection-header">
+          <h2 id="title-protests">Protests</h2>
+          <p class="collection-desc" id="desc-protests">
+            Lines, angles and protests.
+          </p>
+        </div>
+        <div class="portfolio-grid" data-collection="protests">
+          <div class="grid-item medium" data-index="0">
+            <img
+              src="../imgs/fotografija/protesti/slavija/1.jpg"
+              alt="Protest 1"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="1">
+            <img
+              src="../imgs/fotografija/protesti/slavija/2.jpg"
+              alt="Protest 2"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="2">
+            <img
+              src="../imgs/fotografija/protesti/slavija/3.jpg"
+              alt="Protest 3"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="3">
+            <img
+              src="../imgs/fotografija/protesti/slavija/4.jpg"
+              alt="Protest 4"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="4">
+            <img
+              src="../imgs/fotografija/protesti/slavija/5.jpg"
+              alt="Protest 5"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="5">
+            <img
+              src="../imgs/fotografija/protesti/slavija/6.jpg"
+              alt="Protest 6"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="6">
+            <img
+              src="../imgs/fotografija/protesti/slavija/7.jpg"
+              alt="Protest 7"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="7">
+            <img
+              src="../imgs/fotografija/protesti/slavija/8.jpg"
+              alt="Protest 8"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="8">
+            <img
+              src="../imgs/fotografija/protesti/slavija/9.jpg"
+              alt="Protest 9"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="9">
+            <img
+              src="../imgs/fotografija/protesti/slavija/10.jpg"
+              alt="Protest 10"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="10">
+            <img
+              src="../imgs/fotografija/protesti/slavija/11.jpg"
+              alt="Protest 11"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="11">
+            <img
+              src="../imgs/fotografija/protesti/zemun/1.jpg"
+              alt="Protest 12"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="12">
+            <img
+              src="../imgs/fotografija/protesti/zemun/2.jpg"
+              alt="Protest 13"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="13">
+            <img
+              src="../imgs/fotografija/protesti/zemun/3.jpg"
+              alt="Protest 14"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="14">
+            <img
+              src="../imgs/fotografija/protesti/zemun/4.jpg"
+              alt="Protest 15"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="15">
+            <img
+              src="../imgs/fotografija/protesti/zemun/5.jpg"
+              alt="Protest 16"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="16">
+            <img
+              src="../imgs/fotografija/protesti/zemun/6.jpg"
+              alt="Protest 17"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="17">
+            <img
+              src="../imgs/fotografija/protesti/zemun/7.jpg"
+              alt="Protest 18"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="18">
+            <img
+              src="../imgs/fotografija/protesti/zemun/8.jpg"
+              alt="Protest 19"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="19">
+            <img
+              src="../imgs/fotografija/protesti/zemun/9.jpg"
+              alt="Protest 20"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="20">
+            <img
+              src="../imgs/fotografija/protesti/zemun/10.jpg"
+              alt="Protest 21"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="21">
+            <img
+              src="../imgs/fotografija/protesti/zemun/11.jpg"
+              alt="Protest 22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="22">
+            <img
+              src="../imgs/fotografija/protesti/zemun/12.jpg"
+              alt="Protest 23"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="23">
+            <img
+              src="../imgs/fotografija/protesti/zemun/13.jpg"
+              alt="Protest 24"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="24">
+            <img
+              src="../imgs/fotografija/protesti/zemun/14.jpg"
+              alt="Protest 25"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="25">
+            <img
+              src="../imgs/fotografija/protesti/zemun/15.jpg"
+              alt="Protest 26"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="26">
+            <img
+              src="../imgs/fotografija/protesti/zemun/16.jpg"
+              alt="Protest 27"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="27">
+            <img
+              src="../imgs/fotografija/protesti/zemun/17.jpg"
+              alt="Protest 28"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="28">
+            <img
+              src="../imgs/fotografija/protesti/zemun/18.jpg"
+              alt="Protest 29"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="29">
+            <img
+              src="../imgs/fotografija/protesti/rik/1.jpg"
+              alt="Protest 30"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="30">
+            <img
+              src="../imgs/fotografija/protesti/rik/2.jpg"
+              alt="Protest 31"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="31">
+            <img
+              src="../imgs/fotografija/protesti/rik/3.jpg"
+              alt="Protest 32"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="32">
+            <img
+              src="../imgs/fotografija/protesti/rik/4.jpg"
+              alt="Protest 33"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="33">
+            <img
+              src="../imgs/fotografija/protesti/rik/5.jpg"
+              alt="Protest 34"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="34">
+            <img
+              src="../imgs/fotografija/protesti/rik/6.jpg"
+              alt="Protest 35"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="35">
+            <img
+              src="../imgs/fotografija/protesti/rik/7.jpg"
+              alt="Protest 36"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="36">
+            <img
+              src="../imgs/fotografija/protesti/rik/8.jpg"
+              alt="Protest 37"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="37">
+            <img
+              src="../imgs/fotografija/protesti/rik/9.jpg"
+              alt="Protest 38"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="38">
+            <img
+              src="../imgs/fotografija/protesti/rik/10.jpg"
+              alt="Protest 39"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="39">
+            <img
+              src="../imgs/fotografija/protesti/rik/11.jpg"
+              alt="Protest 40"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="40">
+            <img
+              src="../imgs/fotografija/protesti/rik/12.jpg"
+              alt="Protest 41"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="41">
+            <img
+              src="../imgs/fotografija/protesti/rik/13.jpg"
+              alt="Protest 42"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="42">
+            <img
+              src="../imgs/fotografija/protesti/rik/14.jpg"
+              alt="Protest 43"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="43">
+            <img
+              src="../imgs/fotografija/protesti/rik/15.jpg"
+              alt="Protest 44"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="44">
+            <img
+              src="../imgs/fotografija/protesti/rgf/1.jpg"
+              alt="Protest 45"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="45">
+            <img
+              src="../imgs/fotografija/protesti/rgf/2.jpg"
+              alt="Protest 46"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="46">
+            <img
+              src="../imgs/fotografija/protesti/rgf/3.jpg"
+              alt="Protest 47"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="47">
+            <img
+              src="../imgs/fotografija/protesti/rgf/4.jpg"
+              alt="Protest 48"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="streetcasual" class="collection-section">
+        <div class="collection-header">
+          <h2 id="title-street">Street/Casual</h2>
+          <p class="collection-desc" id="desc-street">
+            The wild and the serene.
+          </p>
+        </div>
+        <div class="portfolio-grid" data-collection="streetcasual">
+          <div class="grid-item medium" data-index="0">
+            <img
+              src="../imgs/fotografija/streetcasual/1.jpg"
+              alt="Street/Casual 1"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="1">
+            <img
+              src="../imgs/fotografija/streetcasual/2.jpg"
+              alt="Street/Casual 2"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="2">
+            <img
+              src="../imgs/fotografija/streetcasual/3.jpg"
+              alt="Street/Casual 3"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="3">
+            <img
+              src="../imgs/fotografija/streetcasual/4.jpg"
+              alt="Street/Casual 4"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="4">
+            <img
+              src="../imgs/fotografija/streetcasual/5.jpg"
+              alt="Street/Casual 5"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="5">
+            <img
+              src="../imgs/fotografija/streetcasual/6.jpg"
+              alt="Street/Casual 6"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="6">
+            <img
+              src="../imgs/fotografija/streetcasual/7.jpg"
+              alt="Street/Casual 7"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="7">
+            <img
+              src="../imgs/fotografija/streetcasual/8.jpg"
+              alt="Street/Casual 8"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="8">
+            <img
+              src="../imgs/fotografija/streetcasual/9.jpg"
+              alt="Street/Casual 9"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="9">
+            <img
+              src="../imgs/fotografija/streetcasual/10.jpg"
+              alt="Street/Casual 10"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="10">
+            <img
+              src="../imgs/fotografija/streetcasual/11.jpg"
+              alt="Street/Casual 11"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="11">
+            <img
+              src="../imgs/fotografija/streetcasual/12.jpg"
+              alt="Street/Casual 12"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="12">
+            <img
+              src="../imgs/fotografija/streetcasual/13.jpg"
+              alt="Street/Casual 13"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="13">
+            <img
+              src="../imgs/fotografija/streetcasual/14.jpg"
+              alt="Street/Casual 14"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="14">
+            <img
+              src="../imgs/fotografija/streetcasual/15.jpg"
+              alt="Street/Casual 15"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="15">
+            <img
+              src="../imgs/fotografija/streetcasual/16.jpg"
+              alt="Street/Casual 16"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="16">
+            <img
+              src="../imgs/fotografija/streetcasual/17.jpg"
+              alt="Street/Casual 17"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="17">
+            <img
+              src="../imgs/fotografija/streetcasual/18.jpg"
+              alt="Street/Casual 18"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="18">
+            <img
+              src="../imgs/fotografija/streetcasual/19.jpg"
+              alt="Street/Casual 19"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="19">
+            <img
+              src="../imgs/fotografija/streetcasual/20.jpg"
+              alt="Street/Casual 20"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="20">
+            <img
+              src="../imgs/fotografija/streetcasual/21.jpg"
+              alt="Street/Casual 21"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="21">
+            <img
+              src="../imgs/fotografija/streetcasual/22.jpg"
+              alt="Street/Casual 22"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="22">
+            <img
+              src="../imgs/fotografija/streetcasual/24.jpg"
+              alt="Street/Casual 24"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="23">
+            <img
+              src="../imgs/fotografija/streetcasual/25.jpg"
+              alt="Street/Casual 25"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="grid-item medium" data-index="24">
+            <img
+              src="../imgs/fotografija/streetcasual/26.jpg"
+              alt="Street/Casual 26"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <button id="back-to-top" aria-label="Back to Top">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+      </button>
+
+      <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev" aria-label="Previous Image">
+          &#10094;
+        </button>
+        <div class="lightbox-content-wrapper">
+          <img
+            class="lightbox-content"
+            id="lightbox-img"
+            src=""
+            alt="Lightbox Image"
+          />
+          <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-next" aria-label="Next Image">&#10095;</button>
+      </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script type="module" src="../js/background.js"></script>
+  </body>
+</html>
