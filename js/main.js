@@ -261,7 +261,7 @@ const translations = {
     card_gallery: 'Gallery',
     card_projects: 'Frontend Projects',
     page_gallery_title: 'Gallery',
-    page_gallery_subtitle: 'Selected works 2021-2025',
+    page_gallery_subtitle: 'Selected works',
     photo_desc_1: 'Urban Shadows',
     photo_desc_2: 'Portraits',
     photo_desc_3: 'Architecture',
@@ -315,7 +315,7 @@ const translations = {
     card_gallery: 'Galerija',
     card_projects: 'Frontend Projekti',
     page_gallery_title: 'Galerija',
-    page_gallery_subtitle: 'Izabrani radovi 2023-2025',
+    page_gallery_subtitle: 'Izabrani radovi',
 
     photo_desc_1: 'Urbane Senke',
     photo_desc_2: 'Portreti',
